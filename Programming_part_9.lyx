@@ -1,0 +1,1790 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% SPDX-FileCopyrightText: 2026 JM van Schalkwyk
+% SPDX-License-Identifier: LicenseRef-Zyzyxia-1
+
+% for: LaTeX DogWagger version=`4.0.1' fileTarget=`dummy.txt' startComment=`#' noWarn=`yes'
+%========================================================================
+% LaTeX Dogwagger takes LaTeX files and pulls out verbatim comments,    %
+% concatenating the text enclosed in these verbatim comments            %
+% into executable code. Copyright (C) J van Schalkwyk, 2005.            %
+% LaTeX Dogwagger is made available under the GNU Public Licence (GPL). %
+% To NOT include a particular verbatim section, a comment line          %
+%   containing the text: DogWagger dogsAllowed=`no' must precede *ANY*  %
+%   line containing the text \begin{verbatim} !                         %
+%===============================================================
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "en"
+\defaultfontfeatures{Mapping=tex-text}
+%\usepackage{hyperref} 
+
+% Colour hyperlinks: 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={blue!80!black},
+    urlcolor={blue!60!black},
+    citecolor={green!50!black}
+}
+
+% Suppress Figure 1 etc. 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compact]{titlesec}
+% \hyphenation{}
+\titleformat{\section}{\Large\sffamily}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\large\sffamily}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0.5em}{}
+%%%%%%%%%%%%
+\titlespacing{\section}{0em}{2em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0em}
+%%%%%%%%%%%%
+
+
+% Modify format of Table Of Contents:
+\usepackage[]{tocloft}
+% \usepackage{ulem}  % NO. changes \emph to underlining!
+\renewcommand{\cfttoctitlefont}{\hfill\huge\sf}  % Big "Contents" title
+\renewcommand{\cftaftertoctitle}{\hfill} % and hfill * 2 centres title. 
+\renewcommand{\cftsecfont}{\sf\large}        % section titles in SF, Large.
+\renewcommand{\cftsubsecfont}{\sf}             % subsections are SF
+\renewcommand{\cftsubsecpagefont}{\sf}    % page numbers in sans serif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% the following fails to fix the irritating utf16 messages.
+% \hypersetup{unicode=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "NotoSerifRegular" "DejaVu Serif"
+\font_sans "NotoSansLight" "DejaVu Sans"
+\font_typewriter "beramono" "DejaVu Sans Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 90
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 9
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #1c71d8
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+“All I Wanted was a Banana”
+\end_layout
+
+\begin_layout Subtitle
+
+\size large
+Programming part 9:
+ The worst decisions in programming
+\end_layout
+
+\begin_layout Author
+
+\family sans
+\size small
+Dr Jo
+\end_layout
+
+\begin_layout Date
+
+\family sans
+\size footnotesize
+2026-10-11
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Gorilla_Eating.webp
+	lyxscale 60
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Gorilla Eating"
+target "https://commons.wikimedia.org/wiki/File:Gorilla_Eating.jpg"
+literal "false"
+
+\end_inset
+
+—
+image from Wikimedia Commons
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Quote
+
+\size small
+“I think the lack of reusability comes in object-oriented languages,
+ not functional languages.
+ Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them.
+ You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.
+ 
+\begin_inset Newline newline
+\end_inset
+
+—
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Joe Armstrong"
+target "https://gist.github.com/bryanhunter/1786462"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We continue our 
+\begin_inset CommandInset href
+LatexCommand href
+name "fun-filled"
+target "https://drjo.substack.com/p/giggling-rats-and-joy-jumps"
+literal "false"
+
+\end_inset
+
+ exploration of the exotic computer language 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia"
+target "https://drjo.substack.com/i/212130688/lets-start-building"
+literal "false"
+
+\end_inset
+
+.
+ So far we’ve swiped from 
+\begin_inset CommandInset href
+LatexCommand href
+name "LISP"
+target "https://drjo.substack.com/i/213376055/lisp"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "J"
+target "https://drjo.substack.com/i/212130688/j-has-parts-of-speech"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset CommandInset href
+LatexCommand href
+name "Forth"
+target "https://drjo.substack.com/i/213376055/going-forth-using-reverse-polish"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ and introduced 
+\begin_inset CommandInset href
+LatexCommand href
+name "POWER notation"
+target "https://drjo.substack.com/p/lets-polish-our-polish"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+;
+ our next target is Erlang.
+\end_layout
+
+\begin_layout Standard
+I recently 
+\begin_inset CommandInset href
+LatexCommand href
+name "lamented the clunky programming that bedevils medicine"
+target "https://drjo.substack.com/p/exhibit-a"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+—
+and contrasted this with the legendary 99.9999999% up-time of the million+ lines of Erlang code that powers the Ericsson AXD301 ATM switching system.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+As I pointed out there,
+ Armstrong is a bit more muted in his PhD thesis about those ‘nine nines’.
+ So yes,
+ perhaps a bit of legend here :) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This focus of this post is not,
+ however,
+ either a paean of praise for Erlang,
+ nor some sort of beat-up on object-oriented programming.
+ Well,
+ not completely.
+ I am more interested in what we can learn.
+ Let’s start with some history.
+\end_layout
+
+\begin_layout Section*
+Axing AXE-N
+\end_layout
+
+\begin_layout Standard
+Ericsson makes telephone exchanges.
+ These have a variety of demanding requirements,
+ including (a) not breaking;
+ (b) tolerating faults without breaking;
+ (c) ‘soft real-time’ i.e.
+ not breaking if something is a bit delayed;
+ (d) running non-stop without breaking;
+ and (e) the ability to change an entire program while it is still running,
+ without breaking.
+\end_layout
+
+\begin_layout Standard
+By pretty much any measure,
+ the Ellemtel AXE-N project was a huge failure.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "On their website"
+target "https://www.ericsson.com/en/about-us/history/changing-the-world/the-nordics-take-charge/ellemtel-and-the-axe"
+literal "false"
+
+\end_inset
+
+,
+ Ericsson describes how L.M.
+ Ericsson and Televerket set up Ellemtel as a successful joint venture in the 1960s.
+ They came up with the successful 
+\begin_inset CommandInset href
+LatexCommand href
+name "AXE"
+target "https://en.wikipedia.org/wiki/AXE_telephone_exchange"
+literal "false"
+
+\end_inset
+
+ electronic switching system in the 1970s.
+ AXE-N was to be its successor,
+ a single,
+ universal,
+ global telecommunications system.
+\end_layout
+
+\begin_layout Standard
+At least,
+ in theory.
+ Asynchronous Transfer Mode (ATM
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Don’t confuse this with automated teller machines.
+ 
+\end_layout
+
+\end_inset
+
+) tech was to be used to build something remarkably similar to the Internet,
+ but for all telecoms.
+ The project started in 1987,
+ and SEK 10 billion later,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+North of a billion USD,
+ one of the largest failed telecom projects ever,
+ in any currency.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "died in ignominy"
+target "https://www.ericsson.com/en/about-us/history/changing-the-world/big-bang/axe-n"
+literal "false"
+
+\end_inset
+
+ in December 1995.
+\end_layout
+
+\begin_layout Standard
+The key change here was a move from Ericsson’s own in-house PLEX programming language to the “industrial standard programming language” C++.
+ The problem with complex projects that die is that they are complex,
+ and so it’s easy to find a thousand reasons for failure.
+ The big change to an “industrial standard” can be rationalised as “not the real problem”.
+ We all know that complex projects fail for other reasons—
+overreach,
+ bad management,
+ poor synchronisation of the moving parts,
+ and excessive complexity itself.
+ A scapegoat can be found.
+\end_layout
+
+\begin_layout Standard
+Such failures are less forgivable when the real defect can be found and replaced,
+ with subsequent astounding success—
+and the error is then repeated!
+ First,
+ let’s look at the fix.
+\end_layout
+
+\begin_layout Section*
+Erlang
+\end_layout
+
+\begin_layout Standard
+There are two complementary origins for the name ‘Erlang’.
+ It’s a convenient portmanteau of the initial syllables of ‘Ericsson’ and ‘Language’;
+ but it also refers to the Danish telecommunications pioneer 
+\begin_inset CommandInset href
+LatexCommand href
+name "Agner Krarup Erlang"
+target "https://en.wikipedia.org/wiki/Agner_Krarup_Erlang"
+literal "false"
+
+\end_inset
+
+,
+ who invented queueing theory.
+\end_layout
+
+\begin_layout Standard
+Fortunately for Ericsson,
+ when AXE-N failed,
+ Erlang had been waiting in the wings,
+ under development for a decade—
+in house—
+by Joe Armstrong and a handful of other engineers.
+ Erlang is a functional language.
+ The fundamental idea behind a ‘functional language’ is that it is made up of ‘pure functions’.
+ These are functions because they take zero or more pieces of information (‘arguments’) and produce a single result.
+ They are pure because they produce no side effects.
+ For telecommunications,
+ this is a very good thing.
+ Erlang has other good things.
+\end_layout
+
+\begin_layout Standard
+Erlang is designed for telecoms.
+ Its key features are (a) not breaking;
+ (b) tolerating faults without breaking;
+ (c) ‘soft real-time’ i.e.
+ not breaking if something is a bit delayed;
+ (d) running nonstop without breaking;
+ and (e) the ability to change an entire program while it is still running,
+ without breaking.
+\end_layout
+
+\begin_layout Standard
+Over the next 3 years,
+ Ericsson invested a lot of face-saving resources into repairing the AXE-N debacle.
+ The Erlang team was expanded from 2 to over 60 people,
+ who commandeered the existing hardware and by 1998 produced and then released the AXD301 ATM switch—
+with the aforementioned,
+ legendary performance.
+\end_layout
+
+\begin_layout Standard
+And now for the fun bit.
+ Also in 1998,
+ Ericsson forbade the use of Erlang in future projects (favouring C++).
+ In December 1998,
+ Erlang was open-sourced and most of the Erlang team resigned.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Subsequently"
+target "https://erlang.org/pipermail/erlang-questions/2006-July/021368.html"
+literal "false"
+
+\end_inset
+
+ \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Standard
+In 1999,
+ management at Erlang suddenly stopped having ‘problems’.
+ These were replaced by ‘issues’.
+ Issues then rapidly transformed into ‘challenges’,
+ which in turn gave way to ‘opportunities’.
+ Their opportunities became so great that in 2004,
+ Ericsson re-hired Armstrong and—
+it is said—
+implemented a “don’t ask permission,
+ just use it” approach to Erlang.
+\end_layout
+
+\begin_layout Standard
+One would hope they paid him well.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Armstrong_Yaws_v_Apache-cropped.webp
+	lyxscale 60
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Web server running Apache vs Yaws (Erlang).
+ See text.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A rather crude graphic of communication rates on the Y axis against number of interrupting processes on the X axis.
+ The former ranges up to 800 KB/s;
+ the latter up to 90,000/s.
+ A swathe of red runs across the top of the entire graphic,
+ signifying ongoing high performance of the Yaws system;
+ The competing Apache shown in green and blue on the left rapidly expires with increasing interrupts.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+What can we learn?
+\end_layout
+
+\begin_layout Standard
+Consider the 
+\begin_inset CommandInset href
+LatexCommand href
+name "above graphic from 2002"
+target "https://guug.de/veranstaltungen/ffg2003/papers/ffg2003-armstrong.pdf"
+literal "false"
+
+\end_inset
+
+.
+ At the top,
+ in red,
+ we have success.
+ An Erlang-based web server (Yaws) sustains communication at around 800 KB/second with 80,000 interrupting processes,
+ running on NFS (the Network File System).
+ On the left in blue,
+ the more conventional Apache runs at half that communication rate,
+ and in this same environment,
+ chokes up and dies with about 4000 interrupting processes.
+ The green is running on the local machine,
+ rather than NFS.
+ It also dies soon.
+\end_layout
+
+\begin_layout Standard
+Armstrong calls this ‘Concurrency-oriented programming’.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Everything is simply designed around communicating processes.
+ Built into the design are small,
+ light,
+ independent processes that deliberately don’t have side effects.
+ All interaction is through asynchronous messages.
+\end_layout
+
+\begin_layout Standard
+Different readers will take away different lessons.
+ Some might reasonably conclude “If you need fault-tolerant concurrency,
+ favour Erlang over C++ in many circumstances”.
+ I can however see some more general lessons.
+ These relate to:
+\end_layout
+
+\begin_layout Enumerate
+The worst decision in programming—
+and the WORM that turns.
+\end_layout
+
+\begin_layout Enumerate
+Globals.
+\end_layout
+
+\begin_layout Enumerate
+Local variables.
+\end_layout
+
+\begin_layout Enumerate
+OOPS!
+\end_layout
+
+\begin_layout Enumerate
+Failure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let’s take each in turn.
+\end_layout
+
+\begin_layout Section
+The worst decision
+\end_layout
+
+\begin_layout Standard
+There are multiple candidates for the worst idea in computer programming.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "GOTO statements"
+target "https://en.wikipedia.org/wiki/Considered_harmful"
+literal "false"
+
+\end_inset
+
+ that invite “spaghetti programming”.
+ Tight coupling between modules,
+ or between 
+\begin_inset CommandInset href
+LatexCommand href
+name "the information layer and the functional layer"
+target "https://drjo.substack.com/i/184290811/but-monoliths-work"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ Failing to embrace 
+\begin_inset CommandInset href
+LatexCommand href
+name "literate programming."
+target "https://drjo.substack.com/p/are-you-literate"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ Insightless use of 
+\begin_inset CommandInset href
+LatexCommand href
+name "NoSQL"
+target "https://drjo.substack.com/i/160166306/but-no-sql"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ Excessive code complexity.
+ But here’s an example of my #1 for defective code:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+N = N + 1;
+\end_layout
+
+\begin_layout Standard
+I’m sure at least some readers are thinking “C’mon,
+ why’s that so bad then?
+ All we have here is a box (called ‘N’) containing a value,
+ and all we’re doing is adding one.
+ This is standard coding.
+ What could possibly be so bad about this?” Some programmers will be even more forthright.
+\end_layout
+
+\begin_layout Standard
+Consider instead a language where a ‘variable’ can only ever be written once:
+ it’s either undefined,
+ or it has a constant value.
+ For me,
+ this sort of decision about the ‘flavour’ of a language is fundamental,
+ important and profound.
+\end_layout
+
+\begin_layout Standard
+From now on,
+ let’s refer to such single-assignment variables as “WORM”—
+Write Once,
+ Read Many.
+ You’ll meet this in Erlang,
+ Rust and 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+—
+and then squirrelled away in many other languages.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Although Rust buggers things up by (of course) adding a ‘mut’ option.
+ 
+\end_layout
+
+\end_inset
+
+ For example,
+ in modern JavaScript,
+ we have the option of 
+\family typewriter
+const N = 123
+\family default
+;
+ —
+ but it still supports 
+\family typewriter
+var
+\family default
+,
+ embraces 
+\family typewriter
+let
+\family default
+ —
+ and 
+\family typewriter
+const
+\family default
+ objects can be modified!
+\end_layout
+
+\begin_layout Standard
+WORM turns you.
+ It changes the entire way you program.
+ It constrains the way you use state.
+ The first and most obvious impact is on globals.
+\end_layout
+
+\begin_layout Section
+Globals
+\end_layout
+
+\begin_layout Standard
+Good programmers rightly disparage globals that are mutable.
+ There are two distinct issues here.
+ The first relates to one of those big problems in all programs—
+naming.
+ If you choose names badly,
+ nothing will help you.
+ This is more a social problem than a programming one.
+ If you are using double-precision floating point numbers,
+ then setting 
+\family typewriter
+Pi
+\family default
+ to anything other than 
+\family typewriter
+3.141592653589793~
+\family default
+ is just silly.
+\end_layout
+
+\begin_layout Standard
+The second problem comes when some well-meaning person
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Or idiot.
+ 
+\end_layout
+
+\end_inset
+
+ re-defines a global value.
+ This is still a social problem related to communicating numerical values,
+ but it rapidly becomes a practical problem of things failing,
+ sometimes rather intermittently.
+\end_layout
+
+\begin_layout Standard
+WORM mitigates the first problem and eliminates the second.
+ If I say \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+SET <Phi> 1.618033988749895~
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+SET <Hello> <Hello,
+ world!>
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ in my language 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ then these values are immutable.
+ In fact,
+ I can’t even re-define a verb once I’ve SET its value.
+ And with this approach,
+ globals lose all of their terror.
+\end_layout
+
+\begin_layout Standard
+By making each global immutable,
+ you do three things.
+ You decrease complexity,
+ because there are just two options:
+ undefined,
+ or that constant value.
+ You substantially decrease the problem of 
+\begin_inset CommandInset href
+LatexCommand href
+name "mutable state"
+target "https://softwareengineering.stackexchange.com/questions/235558/what-is-state-mutable-state-and-immutable-state"
+literal "false"
+
+\end_inset
+
+.
+ But most important,
+ you alter how people think about programming.
+ Let’s try an example.
+\end_layout
+
+\begin_layout Section
+Local variables
+\end_layout
+
+\begin_layout Standard
+To calculate the period of a pendulum accurately,
+ it’s useful to be able to work out the arithmetic-geometric mean or agm.
+ That’s because a pretty precise period for a pendulum is given by 
+\begin_inset CommandInset href
+LatexCommand href
+name "this equation"
+target "http://leapsecond.com/hsn2006/pendulum-period-agm.pdf"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T\approx2\pi\sqrt{\frac{L}{g}}\frac{1}{\mathrm{agm}\left(1,cos\left(\frac{\theta}{2}\right)\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How do we calculate the agm()?
+ Here’s some code written in C:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/agm.c' startComment=`//' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <math.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+  // Return arithmetic-geometric mean (positive arguments).
+\end_layout
+
+\begin_layout Plain Layout
+
+double agm (double a,
+ double g)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+if (a <= 0 || g <= 0) { // domain error
+\end_layout
+
+\begin_layout Plain Layout
+
+return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+for (;;) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  double a0 = a;
+\end_layout
+
+\begin_layout Plain Layout
+
+  double g0 = g;
+\end_layout
+
+\begin_layout Plain Layout
+
+  a = (a0 + g0) / 2;
+\end_layout
+
+\begin_layout Plain Layout
+
+  g = sqrt(a0 * g0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (a == g || fabs(a - g) >= fabs(a0 - g0)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return a;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The idea is that we repeatedly loop around until the average of the arithmetic and geometric mean converges on the answer.
+ The code is crude but effective,
+ converging rapidly.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+If you pop it into Claude,
+ the bot will correctly point out several defects—
+it may misbehave with infinite values and those not-a-number (NAN);
+ the return value of 0 is ambiguous;
+ the test for convergence is subtle.
+\end_layout
+
+\end_inset
+
+ And yes,
+ it uses that N=N+1 paradigm.
+\end_layout
+
+\begin_layout Standard
+Here’s something similar,
+ written in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/agm.whole' startComment=`==' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+SET <agm> 
+\end_layout
+
+\begin_layout Plain Layout
+
+< agm (aMean gMean) 
+\end_layout
+
+\begin_layout Plain Layout
+
+  { RETURN aMean 
+\end_layout
+
+\begin_layout Plain Layout
+
+    | } CASE NEARLY aMean gMean 
+\end_layout
+
+\begin_layout Plain Layout
+
+  SET [.gMean.] geometric_mean 
+\end_layout
+
+\begin_layout Plain Layout
+
+  SET [.aMean.] mean COPY 
+\end_layout
+
+\begin_layout Plain Layout
+
+> 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You can get the gist of the code,
+ simply reading left-to-right—
+even though POWER parses 
+\begin_inset CommandInset href
+LatexCommand href
+name "right to left"
+target "https://drjo.substack.com/p/lets-polish-our-polish"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ First,
+ we can see that 
+\family typewriter
+agm (aMean gMean)
+\family default
+ recurses,
+ calling itself.
+ It even provides a concise hint of how it’s used,
+ taking an arithmetic and geometric mean as arguments.
+\end_layout
+
+\begin_layout Standard
+We soon see the termination condition:
+ if the two are 
+\family typewriter
+NEARLY
+\family default
+ equal,
+ we return one of them.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+It’s awfully easy to muck up the comparison of two floats,
+ so solid code to do this is wrapped up in the 
+\family typewriter
+NEARLY
+\family default
+ command—
+rather than relying on empiric guessing code.
+ 
+\end_layout
+
+\end_inset
+
+ Note how the parochial
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+‘Local variables’ in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ are ‘parochials’.
+ It’s a parochial thing :)
+\end_layout
+
+\end_inset
+
+ values 
+\family typewriter
+aMean
+\family default
+ and 
+\family typewriter
+gMean
+\family default
+ are respectively set to the arithmetic and geometric means,
+ courtesy of the corresponding verbs.
+\end_layout
+
+\begin_layout Standard
+Finally,
+ on the right,
+ we can work out that 
+\family typewriter
+COPY
+\family default
+ copies the submitted list from the stack,
+ thus providing a copy for both 
+\family typewriter
+mean
+\family default
+ and 
+\family typewriter
+geometric_mean
+\family default
+ to work on.
+ A very different approach,
+ conditioned by the fact that variable re-allocation is forbidden—
+and the stack is there to use.
+ Little constraints have big consequences.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For those who are interested,
+ let’s step through agm.
+ POWER interprets from the right—
+and we mean really on the right,
+ the end of all the code,
+ where we pick up a value from the stack and makes a 
+\family typewriter
+COPY
+\family default
+.
+ This copy is then submitted to 
+\family typewriter
+mean
+\family default
+;
+ the residual value on the stack goes to 
+\family typewriter
+geometric_mean
+\family default
+.
+ If the resulting values in 
+\family typewriter
+aMean
+\family default
+ and 
+\family typewriter
+gMean
+\family default
+ are 
+\family typewriter
+NEARLY
+\family default
+ the same,
+ we return one of them;
+ otherwise we just recur.
+ The parenthesis around 
+\family typewriter
+(aMean gMean)
+\family default
+ tells us we’re dealing with a list of two values,
+ so we know that we apply the verb like this:
+ 
+\family typewriter
+agm (1~ 2~) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+OOPS!
+\end_layout
+
+\begin_layout Standard
+As Armstrong points out,
+ the fundamental difference between functional languages and Object-oriented programming (OOP) is that functional code avoids side effects and ‘mutable state’.
+ If you further constrain things like,
+ well,
+ all variables,
+ this cleans up not just your code space but your mental coding space.
+ Or,
+ as Armstrong says:
+\end_layout
+
+\begin_layout Quote
+
+\size small
+If you have referentially transparent code,
+ if you have pure functions —
+ all the data comes in its input arguments and everything goes out and leave no state behind —
+ it’s incredibly reusable.”
+\end_layout
+
+\begin_layout Standard
+I think it was in 1987 that I watched OOP take off.
+ One thing that bemused me about the spread of OOP at the time was the near-complete lack of evidence of superiority.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Or even equivalence,
+ when it comes to things like code re-use.
+ 
+\end_layout
+
+\end_inset
+
+ If OOP were a drug,
+ I don’t think it would get past even the currently hugely compromised FDA.
+\end_layout
+
+\begin_layout Standard
+OOP clearly has a powerful place where (a) the hierarchical structure of objects closely maps to the structure of the space you’re trying to model.
+ Unfortunately,
+ it may be a suboptimal fit for (b) everything else,
+ especially because the natural tendency in OOP is to spread your mutable state around,
+ throughout your program.
+\end_layout
+
+\begin_layout Standard
+Over the years,
+ I’ve looked for decent studies comparing e.g.
+ OOP and functional programming.
+ You can find a few.
+ Many of these are ‘toy’ comparisons.
+ For example back in the 1990s,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Rachel Harrison et al."
+target "https://digital-library.theiet.org/doi/10.1049/sej.1996.0030"
+literal "false"
+
+\end_inset
+
+ compared C++ and SML (‘
+\begin_inset CommandInset href
+LatexCommand href
+name "Standard ML"
+target "https://en.wikipedia.org/wiki/Standard_ML"
+literal "false"
+
+\end_inset
+
+’ that is mainly functional),
+ against twelve sets of algorithms,
+ and found more errors with SML.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+There’s more here:
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://scholar.google.com/citations?user=BqWM2XwAAAAJ&hl=en"
+target "https://scholar.google.com/citations?user=BqWM2XwAAAAJ&hl=en"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ The remaining ones are subject to controversy.
+ For example,
+ in 2014 
+\begin_inset CommandInset href
+LatexCommand href
+name "Baishakhi Ray and colleagues"
+target "https://dl.acm.org/doi/10.1145/2635868.2635922"
+literal "false"
+
+\end_inset
+
+ pulled 729 projects from GitHub (80 million lines of code,
+ 29k authors) and tried to tease out the effects of language on software quality.
+ They found several effects—
+benefits of strong typing (which we’ll cover in a later post),
+ and a modest benefit of using functional languages,
+ but the main effects they teased out related to other factors such as project size and team size.
+\end_layout
+
+\begin_layout Standard
+The water is even more muddy today,
+ because most popular languages boast “multi-paradigm” capabilities.
+ You can use objects,
+ functional,
+ and often other options too.
+ Sadly,
+ this cuts to the heart of the problem—
+excessive complexity.
+\end_layout
+
+\begin_layout Standard
+Complexity is still the enemy.
+ With OOP,
+ often “All I wanted was a banana”.
+\end_layout
+
+\begin_layout Section
+Failure
+\end_layout
+
+\begin_layout Standard
+I think the stand-out difference for Erlang is not write-once ‘variables’ or better management of things like mutexes (effectively,
+ by 
+\begin_inset CommandInset href
+LatexCommand href
+name "eliminating them"
+target "https://learnxbyexample.com/erlang/mutexes/"
+literal "false"
+
+\end_inset
+
+).
+ Even the possible benefits of a functional approach are exceeded by something else.
+ It’s Armstrong’s approach to error.
+ Here’s a quote from his PhD thesis,
+ once more:
+\end_layout
+
+\begin_layout Quotation
+
+\size small
+The software systems in the case study are so reliable that the people operating these system are inclined to think that they are error-free.
+ This is not the case,
+ indeed software errors did occur at run-time but these errors were quickly corrected so that nobody ever noticed that the errors had occurred.
+\end_layout
+
+\begin_layout Standard
+There are two main ways we can approach software errors:
+ terror or accommodation.
+ The traditional approach is that the program clutches its pearls,
+ cries out “Woe is me!” and dies catastrophically.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This may even be mandatory.
+ 
+\end_layout
+
+\end_inset
+
+ This is usually less than useful.
+\end_layout
+
+\begin_layout Standard
+An alternative is simply to acknowledge that errors will occur,
+ and to plan for and accommodate them.
+ Unless code can be proven not to fail (under the required circumstances,
+ which may be very broad),
+ then it is more reasonable to plan for,
+ trap and manage all sorts of errors,
+ rather than to simply hope.
+\end_layout
+
+\begin_layout Standard
+Erlang’s philosophy here is to have supervisor modules that are continually waiting for something to fail,
+ and to rip all or almost all defensive error code out of the working code in those supervised modules.
+ But even if we’re not going there,
+ we can still respect,
+ honour and plan for error.
+\end_layout
+
+\begin_layout Standard
+For example,
+ 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ has this
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The example is simply illustrative and deliberately a bit vague.
+ When we get to CASE statements,
+ we’ll see the structure is very similar;
+ already you can work out that ConditionFoo and ConditionBar are Nouns,
+ and spot all of the lowercase verbs.
+ For various reasons,
+ I haven’t fully embraced the Erlang take on things.
+ 
+\end_layout
+
+\end_inset
+
+ construct:
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+\size footnotesize
+{ do_default | Yes }
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+\size footnotesize
+{ do_this | EQ ConditionFoo }
+\end_layout
+
+\begin_layout Quotation
+
+\family typewriter
+\size footnotesize
+{ do_that | EQ ConditionBar } TRAP { do_something_here } TRY
+\end_layout
+
+\begin_layout Standard
+As usual,
+ we parse strictly right-to-left using POWER.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+In summary
+\end_layout
+
+\begin_layout Standard
+Complexity is still the enemy.
+ However,
+ we have tools that don’t only help us to manage it,
+ but also subtly change how we see state,
+ local and global variables,
+ and where errors fit in.
+ I’ve tried to build some of this into 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+This is as much a cultural change as it is about the programming language,
+ but sometimes language can influence how we think,
+ and then how we behave.
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+➵
+\family default
+ In my next post,
+ I’ll look at strong typing—
+and take it to ridiculous excesses.
+ We’ll also learn real respect for the stack.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Character ➵ is in DejaVu sans but not serif!
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+My 2c,
+ Dr Jo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ This symbol is used to indicate posts where I’ve discussed the flagged topic in more detail.
+\end_layout
+
+\begin_layout Quotation
+Copyright © 2026 JM van Schalkwyk
+\end_layout
+
+\begin_layout Quotation
+This work is licensed under the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia Public Licence, version 1"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+.
+ You may convey it only together with its Corresponding Literate Source Document,
+ as that Licence requires.
+ All rights are reserved in respect of AI Training Use,
+ including for the purposes of any text-and-data-mining exception or opt-out provision under applicable law.
+ Submitting this work as input to a Generative AI System is prohibited.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,2123 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% SPDX-FileCopyrightText: 2026 JM van Schalkwyk
+% SPDX-License-Identifier: LicenseRef-Zyzyxia-1
+
+% for: LaTeX DogWagger version=`4.0.1' fileTarget=`dummy.txt' startComment=`#' noWarn=`yes'
+%========================================================================
+% LaTeX Dogwagger takes LaTeX files and pulls out verbatim comments,    %
+% concatenating the text enclosed in these verbatim comments            %
+% into executable code. Copyright (C) J van Schalkwyk, 2005.            %
+% LaTeX Dogwagger is made available under the GNU Public Licence (GPL). %
+% To NOT include a particular verbatim section, a comment line          %
+%   containing the text: DogWagger dogsAllowed=`no' must precede *ANY*  %
+%   line containing the text \begin{verbatim} !                         %
+%===============================================================
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "en"
+\defaultfontfeatures{Mapping=tex-text}
+%\usepackage{hyperref} 
+
+% Colour hyperlinks: 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={blue!80!black},
+    urlcolor={blue!60!black},
+    citecolor={green!50!black}
+}
+
+% Suppress Figure 1 etc. 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compact]{titlesec}
+% \hyphenation{}
+\titleformat{\section}{\Large\sffamily}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\large\sffamily}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0.5em}{}
+%%%%%%%%%%%%
+\titlespacing{\section}{0em}{2em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0em}
+%%%%%%%%%%%%
+
+
+% Modify format of Table Of Contents:
+\usepackage[]{tocloft}
+% \usepackage{ulem}  % NO. changes \emph to underlining!
+\renewcommand{\cfttoctitlefont}{\hfill\huge\sf}  % Big "Contents" title
+\renewcommand{\cftaftertoctitle}{\hfill} % and hfill * 2 centres title. 
+\renewcommand{\cftsecfont}{\sf\large}        % section titles in SF, Large.
+\renewcommand{\cftsubsecfont}{\sf}             % subsections are SF
+\renewcommand{\cftsubsecpagefont}{\sf}    % page numbers in sans serif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% the following fails to fix the irritating utf16 messages.
+% \hypersetup{unicode=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "NotoSerifRegular" "DejaVu Serif"
+\font_sans "NotoSansLight" "DejaVu Sans"
+\font_typewriter "beramono" "DejaVu Sans Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 90
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 9
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #1c71d8
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+“The Wrath of Kahan”
+\end_layout
+
+\begin_layout Subtitle
+
+\size large
+Programming part 10:
+ How to blow things up with numbers
+\end_layout
+
+\begin_layout Author
+
+\family sans
+\size small
+Dr Jo
+\end_layout
+
+\begin_layout Date
+
+\family sans
+\size footnotesize
+2026-10-18
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Ariane_composite.webp
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset CommandInset href
+LatexCommand href
+name "Exploding"
+target "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/1998/01/ariane_501_explosion/9088578-6-eng-GB/Ariane_501_explosion_pillars.jpg"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Ariane 5"
+target "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/1998/01/first_test_flight_ariane-5/9086494-5-eng-GB/First_test_flight_Ariane-5_pillars.jpg"
+literal "false"
+
+\end_inset
+
+ from the ESA,
+ ©
+\begin_inset CommandInset href
+LatexCommand href
+name "ESA"
+target "https://www.esa.int/ESA_Multimedia/Terms_and_conditions_of_use_of_images_and_videos_available_on_the_esa_website"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+In continuing my 
+\begin_inset CommandInset href
+LatexCommand href
+name "exposition on programming"
+target "https://drjo.substack.com/p/counting-from-zero"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  I have a tiny problem.
+ It’s about balance.
+ I don’t want to rabbit on too much about my esoteric programming language Zyzyxia,
+ but I also don’t want to neglect it,
+ as it’s still the focus of my ideas about how to build better languages.
+\end_layout
+
+\begin_layout Standard
+So my plan will be to provide small doses of code,
+ explain these perhaps a bit more tersely than I should,
+ and concentrate on blowing things up in a variety of ways.
+ Computer science,
+ you see,
+ has quite a history of explosions of all sorts.
+ Even more than the previously discussed 
+\begin_inset CommandInset href
+LatexCommand href
+name "coding failure that blew up Mariner"
+target "https://drjo.substack.com/i/216683619/a-caution"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The Rosetta Code listing at the time of writing is wrong.
+\end_layout
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  the above picture of an exploding rocket is a salutary lesson about the limitations of computers when it comes to modelling reality.
+ We’ll get there.
+\end_layout
+
+\begin_layout Section*
+But first,
+ typing
+\end_layout
+
+\begin_layout Standard
+If we want to learn programming by numbers,
+ we need to know how to write them.
+ I’ve briefly discussed this before—
+every language has its own way,
+ and some even use 
+\begin_inset CommandInset href
+LatexCommand href
+name "sigils"
+target "https://drjo.substack.com/p/the-summoning-of-spirits"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  Here are some examples of numbers in Zyzyxia:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+42
+\family default
+ —
+ an integer,
+ 
+\family typewriter
+INT
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+42.0
+\family default
+ —
+ a fixed-point number (alternatively 
+\family typewriter
+4.20e1
+\family default
+),
+ 
+\family typewriter
+FIX
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+42~
+\family default
+ —
+ a floating-point number,
+ 
+\family typewriter
+FLOAT
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+:42
+\family default
+ —
+ a Small integer,
+ 
+\family typewriter
+SMALL
+\family default
+,
+ useful for numbers in the (range] of 
+\begin_inset Formula $\pm231$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The trick with Zyzyxia is that she uses strong typing:
+ so if you want to 
+\family typewriter
+ADD
+\family default
+ say 
+\family typewriter
+42
+\family default
+ and 
+\family typewriter
+:42
+\family default
+,
+ you must explicitly say either 
+\family typewriter
+ADD 42 INT :42
+\family default
+,
+ or 
+\family typewriter
+ADD SMALL 42 :42
+\family default
+.
+ Otherwise,
+ you’ll get an error.
+\end_layout
+
+\begin_layout Standard
+We supplement these with two other ‘types of things’.
+ One is just # —
+ a symbol for ‘null’;
+ the other,
+ ‘Empty’ is made up of two underscores __ .
+ For example 
+\family typewriter
+( 1 2 # 3 )
+\family default
+ represents a list with the third element set to null,
+ but we may also want to use __ to signify that the element at position 5 “doesn’t even exist”.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+NULL #
+\family default
+ and 
+\family typewriter
+NULL __
+\family default
+ both return 
+\family typewriter
+Yes
+\family default
+;
+ 
+\family typewriter
+EQ __
+\family default
+ only returns 
+\family typewriter
+Yes
+\family default
+ if its second argument is also __.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A whorl of tightly packed plant leaves in a geometric pattern.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Aeonium_tabuliforme-rotated.webp
+	lyxscale 60
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size footnotesize
+The saucer plant 
+\begin_inset CommandInset href
+LatexCommand href
+name "Aeonium tabuliforme"
+target "https://commons.wikimedia.org/wiki/File:Aeonium_tabuliforme.jpg"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Aww,
+ let’s play with phyllotaxis
+\end_layout
+
+\begin_layout Standard
+The famous code-breaker Alan Turing was fascinated by phyllotaxis—
+the fancy name for the study of mathematical patterns found in plant stems,
+ leaves and seeds.
+ You may know that if you count the number of spirals (as in the above picture),
+ the count often fits into the Fibonacci sequence:
+\end_layout
+
+\begin_layout Quote
+1,
+ 1,
+ 2,
+ 3,
+ 5,
+ 8,
+ 13,
+ 21,
+ 34,
+ 55,
+ \SpecialChar ldots
+ and so on.
+\end_layout
+
+\begin_layout Standard
+In other words,
+ start with 1 and then 1,
+ and have the next number in the sequence as the sum of the preceding two.
+ If we want to get all math-y,
+ then we might say:
+ 
+\begin_inset Formula $F_{0}=1$
+\end_inset
+
+,
+ and 
+\begin_inset Formula $F_{1}=1$
+\end_inset
+
+,
+ and then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{n}=F_{n-1}+F_{n-2},n>1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+eqn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Remarkably,
+ although everyone says “sunflowers are Fibonacci”,
+ until 2016 this hadn’t been studied much.
+ Computational biologist Jonathan Swinton and Dr Erinma Ochu then recruited families,
+ schools and sunflower growers 
+\begin_inset CommandInset href
+LatexCommand href
+name "from Manchester"
+target "https://www.manchester.ac.uk/about/news/turings-sunflowers-growing-alan-turings-legacy/"
+literal "false"
+
+\end_inset
+
+ in a community effort to count the spirals.
+ The specific term for counting spirals is ‘parastichy’,
+ by the way.
+\end_layout
+
+\begin_layout Standard
+Their report is published in 
+\begin_inset CommandInset href
+LatexCommand href
+name "Royal Society Open Science"
+target "https://royalsocietypublishing.org/rsos/article/3/5/160091/36562/Novel-Fibonacci-and-non-Fibonacci-structure-in-the"
+literal "false"
+
+\end_inset
+
+.
+ They found that of 768 clockwise or anticlockwise parastichy numbers,
+ 565 were Fibonacci—
+with a further 67 Fibonacci-like,
+ and the rest a bit strange.
+\end_layout
+
+\begin_layout Standard
+My interest here is more mundane:
+ exploding time.
+ If you’ve ever tried to program Fibonacci,
+ then you’ve likely also discovered that a naive approach can be a bit troublesome.
+ Try this
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The Rosetta Code listing at the time of writing is wrong
+\end_layout
+
+\end_inset
+
+ in 
+\begin_inset CommandInset href
+LatexCommand href
+name "Python"
+target "https://rosettacode.org/wiki/Fibonacci_sequence#Python"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/fibonacci_naive.py' startComment=`#' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+def fib_rec(n):
+\end_layout
+
+\begin_layout Plain Layout
+
+    if n < 2:
+\end_layout
+
+\begin_layout Plain Layout
+
+        return 1
+\end_layout
+
+\begin_layout Plain Layout
+
+    return fib_rec(n-1) + fib_rec(n-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This works up till about 
+\begin_inset Formula $F_{30}$
+\end_inset
+
+ or 
+\begin_inset Formula $F_{35}$
+\end_inset
+
+ and then—
+boom—
+the machine slows to a crawl as the number of calculations blossoms.
+ Even a supercomputer will choke up on 
+\begin_inset Formula $F_{100}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We’ve previously talked about 
+\begin_inset CommandInset href
+LatexCommand href
+name "big O notation"
+target "https://drjo.substack.com/i/168522053/big-o-notation"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  and you get extra brownie points if you now work out that the calculation time blows up exponentially.
+ If we’re precise,
+ it grows as 
+\begin_inset Formula $\mathcal{O}\left(\varphi^{n}\right)$
+\end_inset
+
+,
+ where φ is the 
+\begin_inset CommandInset href
+LatexCommand href
+name "golden ratio"
+target "https://en.wikipedia.org/wiki/Golden_ratio"
+literal "false"
+
+\end_inset
+
+,
+ 
+\begin_inset Formula $1+\frac{\sqrt{5}}{2}$
+\end_inset
+
+.
+ Here’s a slightly more sophisticated approach to the first 100 values,
+ in Zyzyxia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/fibonacci_over.whole' startComment=`==' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+my_fib _over_ SEQ ( 1 ) 100 
+\end_layout
+
+\begin_layout Plain Layout
+
+ARITY :1 <my_fib> 
+\end_layout
+
+\begin_layout Plain Layout
+
+SET <my_fib> 
+\end_layout
+
+\begin_layout Plain Layout
+
+<  JUNK SWAP ADD
+\end_layout
+
+\begin_layout Plain Layout
+
+    { RETURN JUNK | NULL } CASE COPY OF :-1 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { RETURN JUNK | NULL } CASE COPY OF :-2 
+\end_layout
+
+\begin_layout Plain Layout
+
+  > 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This almost instantaneously produces:
+\end_layout
+
+\begin_layout Quote
+
+\size footnotesize
+(1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170 1836311903 2971215073 4807526976 7778742049 12586269025 \SpecialChar ldots
+ )
+\end_layout
+
+\begin_layout Standard
+How does it work?
+ We make a verb called 
+\family typewriter
+my_fib
+\family default
+,
+ and specify how many arguments it takes (its 
+\family typewriter
+ARITY
+\family default
+).
+ We then apply it 
+\family typewriter
+_over_
+\family default
+ a sequence of 100 ones.
+ As we work through that sequence of 1s,
+ newly minting our Fibonacci list,
+ at first “the value before the value before” using 
+\family typewriter
+OF :-2
+\family default
+ and “the value before” using 
+\family typewriter
+OF :-1
+\family default
+ are 
+\family typewriter
+Empty
+\family default
+,
+ so the 
+\family typewriter
+NULL
+\family default
+ test succeeds,
+ we junk the 
+\family typewriter
+COPY
+\family default
+ of __ and return the supplied value of 1.
+ Above 
+\begin_inset Formula $F_{1}$
+\end_inset
+
+ we 
+\family typewriter
+ADD
+\family default
+ those copies,
+ and throw away the 1.
+\end_layout
+
+\begin_layout Standard
+This slows down at perhaps 
+\begin_inset Formula $F_{100,000}$
+\end_inset
+
+ due to the size of the numbers we’re dealing with,
+ but it does illustrate how naively doing the numbers by simply plugging in a formula can be harmful.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Even AT 9,999 myfib _over_ SEQ ( 1 ) 10,000 extracts a remarkably large value at position 9,999:
+\end_layout
+
+\begin_layout Plain Layout
+3.36447648764317832666216120051075433103021484606800639065647699746800814421666623681555955136337340255820653326808361593737347904838652682630408924630564318873545443695598274916066020998841839338646527313000888302692356736131351175792974378544137521305205043477016022647583189065278908551543661595829872796829875106312005754287834532155151038708182989697916131278562650331954871402142875326981879620469360978799003509623022910263681314931952756302278376284415403605844025721143349611800230912082870460
+889239623288354615057765832712525460935911282039252853934346209042452489294039017062338889910858410651831733604374707379085526317643257339937128719375877468974799263058370657428301616374089691784263786242128352581128205163702980893320999057079200643674262023897831114700540749984592503606335609338838319233867830561364353518921332797329081337326426526339897639227234078829281779535805709936910491754708089318410561463223382174656373212482263830921032977016480547262438423748624114530938122065649140327
+510866433945175121615265453613331113140424368548051067658434935238369596534280717687753283482343455573667197313927462736291082106792807847180353291311767789246590899386354593278945237776744061922403376386740040213303432974969020283281459334188268176838930720036347956231171031012919531697946076327375892535307725523759437884345040677155557790564504430166401194625809722167297586150269684431469520346149322911059706762432685159928347098912847067408620085871350162603120719031720860940812983215810772820
+763531866246112782455372085323653057759564300725177443150515396009051686032203491632226408852488524331580515348496224348482993809050704834824493274537326245677558790891871908036620580095947431500524025327097469953187707243768259074199396322659841474981936092852239450397071654431564213281576889080587831834049174345562705202235648464951961124602683139709750693826487066132645076650746115126775227486215986425307112984411826226610571635150692600298617049454250474913781151541399415506712562711971332527
+63631939606902895650288268608362241082050562430701794976171121233066073310059947366875e+2089
+\end_layout
+
+\begin_layout Plain Layout
+By the way,
+ can you see why it’s wrong to test OF :-1 before you test OF :-2 ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Ariane-5-small.webp
+	lyxscale 60
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size footnotesize
+An 
+\begin_inset CommandInset href
+LatexCommand href
+name "intact Ariane 5"
+target "https://commons.wikimedia.org/wiki/File:Ariane_5_with_James_Webb_Space_Telescope_Prelaunch_(51773093465).jpg"
+literal "false"
+
+\end_inset
+
+ (I’ve taken the liberty of turning it sideways despite the support at the base)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A picture of a rocket (the one used successfully to deploy the James Webb Space Telescope)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Physical explosions next
+\end_layout
+
+\begin_layout Standard
+We turn to 
+\begin_inset CommandInset href
+LatexCommand href
+name "flight V88"
+target "https://en.wikipedia.org/wiki/Ariane_flight_V88"
+literal "false"
+
+\end_inset
+
+,
+ aka “Flight 501”,
+ pictured at the start of my post.
+ The massive US$370 million “kaboom” of this first Ariane 5 was the culmination of many small issues—
+as is pretty much always the case with industrial-sized accidents.
+\end_layout
+
+\begin_layout Standard
+But the fundamental problem was incompatibility between an integer and a floating point number.
+ If you wish,
+ a problem of typing.
+\end_layout
+
+\begin_layout Standard
+Some languages like JavaScript and Perl try to do almost everything with ‘double precision’ floating point numbers that fit into 64 bits.
+ Because some of those bits are used for the exponent,
+ we’re left with about 53 bits (or about 16 decimal digits) of precision.
+\end_layout
+
+\begin_layout Standard
+Other languages have a wealth (if that’s the right term) of different types.
+ This is often a legacy from when every bit was precious.
+ Take C.
+ Here,
+ a short integer is at least 16 bits long;
+ an int is similar
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Now commonly 32 bits.
+\end_layout
+
+\end_inset
+
+;
+ a long is at least 32 bits;
+ a long long is at least 64 bits.
+ And then we have two different flavours of each of these—
+signed,
+ and unsigned.
+ The floats are 32 bits,
+ doubles are 64 bits,
+ and you may encounter 80 bit long doubles.
+\end_layout
+
+\begin_layout Standard
+V88 went bang because programmers tried to squeeze a 64-bit float into a 16 bit integer.
+\end_layout
+
+\begin_layout Standard
+The earlier Ariane 4 had an inertial reference platform where the code used 16-bit signed integers to represent horizontal drift velocity.
+ They retained this legacy code,
+ along with 64-bit floats,
+ and tried to convert a float into one of those tiny integers.
+ This overflowed,
+ causing the inertial reference modules to crash repeatedly,
+ and full nozzle deflections of the engines.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+And of course it’s more complex than this.
+ The defensive redundancy of having two systems turned into a liability.
+ The legacy code didn’t even need to be running at the time.
+ The programmers had left some variables unprotected to ensure that the computer workload kept under the target of 80%.
+ Nobody bothered to check whether the engine calculations for Ariane 4 became outdated with the far more powerful Ariane 5 engines.
+ And so on.
+\end_layout
+
+\end_inset
+
+ Eventually,
+ kaboom!
+\end_layout
+
+\begin_layout Standard
+Type conversion bedevils a lot of programming,
+ especially unthinking type coercion.
+ But we’re not done with the numbers yet.
+\end_layout
+
+\begin_layout Section*
+Some banker myths.
+ Or are they?
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "We’ve already discovered"
+target "https://drjo.substack.com/i/212226868/but"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  how in JavaScript trying to add 
+\begin_inset Formula $0.1+0.2$
+\end_inset
+
+ gives 
+\begin_inset Formula $0.30000000000000004$
+\end_inset
+
+,
+ a powerful motivation for using fixed point numbers in circumstances where we really,
+ really want 
+\begin_inset Formula $0.1+0.2$
+\end_inset
+
+ to equal 
+\begin_inset Formula $0.3$
+\end_inset
+
+.
+ Circumstances like,
+ well,
+ banking.
+\end_layout
+
+\begin_layout Standard
+I’m sure you’ve heard the tale.
+ A programmer who works for a bank diverts fractions of a cent (round-off ‘errors’) from multiple accounts.
+ In many versions,
+ the accumulated small amounts blow out to the point where he doesn’t quite know how to handle the cash,
+ and gets caught.
+\end_layout
+
+\begin_layout Standard
+But did this “salami slicing attack” ever happen?
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Snopes"
+target "https://www.snopes.com/fact-check/the-salami-technique/"
+literal "false"
+
+\end_inset
+
+ says it’s a ‘legend’,
+ confined to fiction like the movie 
+\begin_inset CommandInset href
+LatexCommand href
+name "Superman III"
+target "https://superman.fandom.com/wiki/Gus_Gorman"
+literal "false"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "The Risk Digest"
+target "https://catless.ncl.ac.uk/Risks/5/58"
+literal "false"
+
+\end_inset
+
+,
+ Volume 5 Issue 58 from Sunday 15 November 1987,
+ however cites the front page of the Toronto Globe and Mail of 3 November 1987:
+\end_layout
+
+\begin_layout Quotation
+In another case Sgt.
+ Green worked on,
+ a bank branch decided on the occasion of its 10th anniversary to honor the customer who had the most active account.
+ It turned out to be an employee who had accumulated $70,000 funnelling a few cents out of every account into his own.
+ He said:
+ 
+\begin_inset Quotes bld
+\end_inset
+
+Go ahead and charge me.
+ I will tell the public you have been doing this for years.
+\begin_inset Quotes brd
+\end_inset
+
+ It was true.
+ The bank had been rounding off (customers’) accounts and putting them into sundry accounts.
+\end_layout
+
+\begin_layout Standard
+There’s no independent corroboration of this story—
+but you can imagine that banks wouldn’t be that keen to give it credence.
+ We may never know whether this is a 
+\begin_inset CommandInset href
+LatexCommand href
+name "legend"
+target "https://drjo.substack.com/i/161654408/myths-v-legends"
+literal "false"
+
+\end_inset
+
+ with a foundation in fact.
+\end_layout
+
+\begin_layout Standard
+Today,
+ the 
+\begin_inset CommandInset href
+LatexCommand href
+name "catch"
+target "https://makemerich.co/salami-slicing-fraud-truth/"
+literal "false"
+
+\end_inset
+
+ is that bankers use “banker’s rounding” or round up in the customer’s favour,
+ so there should be nothing to skim.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+If you want to explore rounding,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "here’s a decent overview"
+target "https://www.moderntreasury.com/journal/floats-dont-work-for-storing-cents"
+literal "false"
+
+\end_inset
+
+,
+ even if they want to sell you something.
+\end_layout
+
+\end_inset
+
+ Forensic accountancy is also a constraining factor—
+even if you’ve stolen something,
+ you need to make sure that you can launder it,
+ pay taxes (or not) and so on.
+\end_layout
+
+\begin_layout Standard
+But the fact remains—
+sometimes it’s wise to use floats,
+ and sometimes it’s wise to use fixed-point calculations.
+ So if we use appropriate numbers and conservative calculations,
+ we’re good,
+ right?
+ Not so fast.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Ether_explosion.webp
+	lyxscale 60
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size footnotesize
+‘ether explosion’ courtesy of Gemini
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A bot-generated graphic of the Ethereum symbol exploding,
+ with smoke and flames.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Detonating Crypto
+\end_layout
+
+\begin_layout Quotation
+On November 3,
+ 2025,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Check Point Research’s blockchain monitoring systems"
+target "https://research.checkpoint.com/2025/how-an-attacker-drained-128m-from-balancer-through-rounding-error-exploitation/"
+literal "false"
+
+\end_inset
+
+ detected a sophisticated exploit targeting Balancer V2’s ComposableStablePool contracts.
+ The attacker exploited arithmetic precision loss in pool invariant calculations to drain $128.64 million across six blockchain networks in under 30 minutes.
+\end_layout
+
+\begin_layout Standard
+Kaboom!
+ It would seem that despite dealing with eye-wateringly large amounts of money,
+ crypto is not run by traditional-style bankers.
+ That conclusion may however be a bit unfair,
+ so let’s explore.
+ We’ll start at the beginning.
+\end_layout
+
+\begin_layout Standard
+Ethereum is currently second only to bitcoin in market cap.
+ Technically it’s a decentralised 
+\begin_inset CommandInset href
+LatexCommand href
+name "blockchain"
+target "https://en.wikipedia.org/wiki/Blockchain"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+A blockchain is a distributed ledger that has multiple copies and built-in mechanisms for non-repudiation.
+\end_layout
+
+\end_inset
+
+ with smart contracts:
+ automatic,
+ computerised transactions are used to decrease the need for trusted intermediaries,
+ smooth over costs,
+ and prevent fraud.
+ In theory.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "ERC20"
+target "https://www.gate.com/crypto-wiki/article/what-is-erc20-a-complete-guide-to-ethereum-s-most-widely-used-token-standard-20260131"
+literal "false"
+
+\end_inset
+
+ is Ethereum’s most widely used token standard.
+ It was developed in 2015 as a fundamental building block for smart blockchain contracts.
+ It’s technical.
+ It specifies a fixed set of functions for handling crypto transfers,
+ balance verification,
+ permissions,
+ and approval of transactions.
+ A Balancer Pool Token (BPT) is a special,
+ ERC-20 compliant representation of a user’s share of ownership in a ‘Balancer’ pool.
+\end_layout
+
+\begin_layout Standard
+And what,
+ you might ask,
+ is a 
+\begin_inset CommandInset href
+LatexCommand href
+name "Balancer"
+target "https://baltex.io/dapps/balancer"
+literal "false"
+
+\end_inset
+
+ pool?
+ It’s a protocol that fits under the general heading of AMMs—
+automated market makers.
+ Continuing our interrogation,
+ an AMM is a protocol that continuously prices several digital assets.
+ No traditional order books are needed,
+ as they are replaced by ‘liquidity pools’.
+ As trades happen and prices change,
+ the token balances follow.
+\end_layout
+
+\begin_layout Standard
+The idea is that you put your tokens into the pool (you’re now a “liquidity provider”) and as trading proceeds,
+ you earn a commensurate proportion of the trading fees.
+ All is fair and balanced.
+ A 
+\begin_inset CommandInset href
+LatexCommand href
+name "sophisticated algorithm"
+target "https://medium.com/@0xmirai77/curve-v1-the-stableswap-invariant-f87ad7641aa0"
+literal "false"
+
+\end_inset
+
+ is used to maintain price stability between similar assets.
+ There should be no chance of 
+\begin_inset CommandInset href
+LatexCommand href
+name "arbitrage"
+target "https://en.wikipedia.org/wiki/Arbitrage"
+literal "false"
+
+\end_inset
+
+ within the algorithm itself—
+taking advantage of different prices in such a way that however things turn out,
+ you never lose.
+\end_layout
+
+\begin_layout Standard
+But then along comes our attacker.
+ He (or she) worked out that in very specific circumstances,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "rounding errors in the integer arithmetic"
+target "https://www.openzeppelin.com/news/understanding-the-balancer-v2-exploit"
+literal "false"
+
+\end_inset
+
+ can cause up to 10% precision loss per operation.
+ By carefully winding the wheel around and around,
+ repeating similar error-prone trades,
+ our attacker uses the rounding error to progressively suppress BPT prices.
+ They then set up an arbitrage,
+ extract their money,
+ and leave—
+over a hundred million dollars richer.
+\end_layout
+
+\begin_layout Standard
+You might think that the above attack is very specific,
+ very peculiar,
+ and very unusual.
+ Unfortunately,
+ there’s a basic wrong assumption here.
+ Things are worse.
+\end_layout
+
+\begin_layout Section*
+The Wrath of Kahan
+\end_layout
+
+\begin_layout Standard
+Ninety-three-year-old 
+\begin_inset CommandInset href
+LatexCommand href
+name "William Kahan"
+target "https://en.wikipedia.org/wiki/William_Kahan"
+literal "false"
+
+\end_inset
+
+ is the Canadian mathematician who brought order to floating point calculations by building the current floating point standard (IEEE 754),
+ pretty much single-handedly.
+ He has spent much of the rest of his life pointing out 
+\begin_inset CommandInset href
+LatexCommand href
+name "how things can go pear-shaped"
+target "http://people.eecs.berkeley.edu/~wkahan/Mindless.pdf"
+literal "false"
+
+\end_inset
+
+.
+ Especially if our behaviour is mindless.
+\end_layout
+
+\begin_layout Standard
+Generally,
+ it's very wrong to believe that the real numbers 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ can be represented adequately on computers.
+ They can’t.
+ Consider 
+\begin_inset CommandInset href
+LatexCommand href
+name "the following equation"
+target "https://people.eecs.berkeley.edu/~wkahan/CS279/MullerEx.pdf"
+literal "false"
+
+\end_inset
+
+ initially pointed out by Jean-Michel Muller:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[formula]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{i}=111-\frac{1130}{u_{i-1}}+\frac{3000}{u_{i-1}u_{i-2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Can you see the similarity to our playing with Fibonacci?
+ Let’s try some coding with floating point numbers:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/wrath.whole' startComment=`==' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+wrath _over_ JOIN :2 (2~ -4~) SEQ (111~) 35
+\end_layout
+
+\begin_layout Plain Layout
+
+arity :1 <wrath> 
+\end_layout
+
+\begin_layout Plain Layout
+
+setverb <wrath> 
+\end_layout
+
+\begin_layout Plain Layout
+
+< ADD DIV MUL OF :-1 OF :-2 
+\end_layout
+
+\begin_layout Plain Layout
+
+          3000~ 
+\end_layout
+
+\begin_layout Plain Layout
+
+      SUB DIV OF :-1 
+\end_layout
+
+\begin_layout Plain Layout
+
+              1130~ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  { RETURN | } CASE NULL OF :-1 
+\end_layout
+
+\begin_layout Plain Layout
+
+  { RETURN | } CASE NULL OF :-2
+\end_layout
+
+\begin_layout Plain Layout
+
+ >
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You can find 
+\begin_inset CommandInset href
+LatexCommand href
+name "dozens of attempts in various languages"
+target "https://rosettacode.org/wiki/Pathological_floating_point_problems"
+literal "false"
+
+\end_inset
+
+ at Rosetta Code.
+ Here’s what we get with 64-bit floats:
+\end_layout
+
+\begin_layout Quotation
+
+\size footnotesize
+(2~ -4~ 18.5~ 9.378378378378379~ 7.801152737752169~ 7.154414480975333~ 6.806784736924811~ 6.592632768721792~ 6.449465934053933~ 6.348452060746624~ 6.274438662728116~ 6.218696768582163~ 6.17585385581539~ 6.142627170481006~ 6.120248704570159~ 6.166086559598099~ 7.235021165534931~ 22.062078463525793~ 78.57557488787224~ 98.34950312216536~ 99.8985692661829~ 99.99387098890278~ 99.99963038728635~ 99.99997773067949~ 99.99999865921669~ 99.99999991932181~ 99.99999999514776~ 99.99999999970828~ 99.99999999998246~ 99.99999999999893~ 99.9
+9999999999993~ 99.99999999999999~ 100~ 100~ 100~ 100~ 100~)
+\end_layout
+
+\begin_layout Standard
+This is very unwell.
+ The exact sequence (in 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+) converges to the value 6.
+ But with progressive cumulation of small errors after about 15 iterations,
+ there’s a false convergence to 100.
+\end_layout
+
+\begin_layout Standard
+Now if I try the same thing with 24 digit precision (the default for fixed point numbers in Zyzyxia),
+ then the rot only starts happening after about 23 iterations.
+ And so it goes—
+I need over 100 digit precision for 100 iterations.
+\end_layout
+
+\begin_layout Section*
+Fractions
+\end_layout
+
+\begin_layout Standard
+Interestingly enough,
+ we can do better if we stick to fractions.
+ Here’s 
+\begin_inset CommandInset href
+LatexCommand href
+name "a neat Python example"
+target "https://rosettacode.org/wiki/Pathological_floating_point_problems#Python"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/muller_seq.py' startComment=`#' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+from fractions import Fraction
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def muller_seq(n:int) -> float:
+\end_layout
+
+\begin_layout Plain Layout
+
+    seq = [Fraction(0),
+ Fraction(2),
+ Fraction(-4)]
+\end_layout
+
+\begin_layout Plain Layout
+
+    for i in range(3,
+ n+1):
+\end_layout
+
+\begin_layout Plain Layout
+
+        next_value = (111 - 1130/seq[i-1]
+\end_layout
+
+\begin_layout Plain Layout
+
+            + 3000/(seq[i-1]*seq[i-2]))
+\end_layout
+
+\begin_layout Plain Layout
+
+        seq.append(next_value)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return float(seq[n])
+\end_layout
+
+\begin_layout Plain Layout
+
+for n in [3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 20,
+ 30,
+ 50,
+ 100]:
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(”{:4d} -> {}”.format(n,
+ muller_seq(n)))
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Fractions library in Python has no limits,
+ as it expands the calculations to fit,
+ preserving the new fraction and working out the 
+\begin_inset CommandInset href
+LatexCommand href
+name "GCD"
+target "https://en.wikipedia.org/wiki/Greatest_common_divisor"
+literal "false"
+
+\end_inset
+
+ at every step.
+ The catch is,
+ of course,
+ that calculation times blow out as we wind around again and again.
+ There’s always a cost,
+ you see.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Julia has a Rational{T} type written as e.g.
+ 1//6 that uses a similar approach,
+ with Rational{BigInt}.
+ Many other languages like J support fractions too.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At present,
+ I’ve however chosen not to build fractions into Zyzyxia,
+ preferring simply to allow specification of fixed point numbers to a given precision.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For example PRECISION :50 1.0 produces 1.0 with a precision of 50 decimal places.
+\end_layout
+
+\end_inset
+
+ The catch with adding more types,
+ you see,
+ is that you need to maintain them.
+ It’s all about balance.
+\end_layout
+
+\begin_layout Section*
+Respect
+\end_layout
+
+\begin_layout Standard
+By knowing what we’re doing,
+ having respect for the limitations of the numbers we’re using,
+ and understanding the importance of typing and balance,
+ we may be able to limit the carnage.
+\end_layout
+
+\begin_layout Standard
+Certain design aspects can help too.
+ This includes the design of the language you’re using.
+ If we say in JavaScript:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+const fred = 1 + '2' * '3'
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ then we obtain 7,
+ as the 
+\family typewriter
+'2'
+\family default
+ and 
+\family typewriter
+'3'
+\family default
+ are automagically coerced to numbers;
+ but if we say 
+\family typewriter
+(1 + '2') * '3'
+\family default
+,
+ we obtain 36,
+ because the 1 is coerced to a string.
+ Now,
+ if a is 
+\family typewriter
+'2'
+\family default
+,
+ what is the result of evaluating the following expression?
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+(a ++ + a)
+\end_layout
+
+\begin_layout Standard
+Yep.
+ The left-hand a is incremented to 3 and added to a numeric value of 2,
+ to give 5;
+ whereas 
+\family typewriter
+( '2' ++ + '2')
+\family default
+ forces an error.
+ Don’t ask.
+\end_layout
+
+\begin_layout Standard
+I’d suggest that this sort of language design builds ‘disrespect’ into the language.
+ If we play fast and loose with numerical or indeed other types,
+ we’re inviting sloppy,
+ ambiguous code that will simply betray us,
+ sooner or later.
+ Kaboom!
+\end_layout
+
+\begin_layout Standard
+Strong typing rocks.
+ And we already know that w
+\begin_inset CommandInset href
+LatexCommand href
+name "here it has been studied"
+target "https://drjo.substack.com/i/219692586/4-oops"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  it decreases errors.
+ But it's not a panacea.
+ The code for the Ariane 5 
+\begin_inset Quotes bld
+\end_inset
+
+Kaboom
+\begin_inset Quotes brd
+\end_inset
+
+ was written in Ada—
+which has a reputation as a 'strongly typed' language!
+ More generally,
+ we already know that 
+\begin_inset CommandInset href
+LatexCommand href
+name "no scientific model can build a ‘true’ model of reality, even asymptotically"
+target "https://drjo.substack.com/p/mostly-wrong"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+  We need to respect this limitation.
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+➵
+\family default
+ In my next post,
+ we’ll revisit one of the most difficult things in computer science:
+ naming.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+My 2c,
+ Dr Jo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ This symbol is used to indicate posts where I’ve discussed the flagged topic in more detail.
+\end_layout
+
+\begin_layout Quotation
+Copyright © 2026 JM van Schalkwyk
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+This work is licensed under the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia Public Licence, version 1"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+.
+ You may convey it only together with its 
+\begin_inset CommandInset href
+LatexCommand href
+name "Corresponding Literate Source Document"
+target "https://github.com/jvanschalkwyk/zyzyxia/blob/main/Programming_part_10.lyx"
+literal "false"
+
+\end_inset
+
+,
+ as that Licence requires.
+ All rights are reserved in respect of AI Training Use,
+ including for the purposes of any text-and-data-mining exception or opt-out provision under applicable law.
+ Submitting this work as input to a Generative AI System is prohibited.
+\end_layout
+
+\end_body
+\end_document

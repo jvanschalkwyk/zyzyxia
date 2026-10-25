@@ -1,0 +1,1557 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% SPDX-FileCopyrightText: 2026 JM van Schalkwyk
+% SPDX-License-Identifier: LicenseRef-Zyzyxia-1
+
+% for: LaTeX DogWagger version=`4.0.1' fileTarget=`dummy.txt' startComment=`#' noWarn=`yes'
+%========================================================================
+% LaTeX Dogwagger takes LaTeX files and pulls out verbatim comments,    %
+% concatenating the text enclosed in these verbatim comments            %
+% into executable code. Copyright (C) J van Schalkwyk, 2005.            %
+% LaTeX Dogwagger is made available under the GNU Public Licence (GPL). %
+% To NOT include a particular verbatim section, a comment line          %
+%   containing the text: DogWagger dogsAllowed=`no' must precede *ANY*  %
+%   line containing the text \begin{verbatim} !                         %
+%===============================================================
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "en"
+\defaultfontfeatures{Mapping=tex-text}
+%\usepackage{hyperref} 
+
+% Colour hyperlinks: 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={blue!80!black},
+    urlcolor={blue!60!black},
+    citecolor={green!50!black}
+}
+
+% Suppress Figure 1 etc. 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compact]{titlesec}
+% \hyphenation{}
+\titleformat{\section}{\Large\sffamily}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\large\sffamily}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0.5em}{}
+%%%%%%%%%%%%
+\titlespacing{\section}{0em}{2em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0em}
+%%%%%%%%%%%%
+
+
+% Modify format of Table Of Contents:
+\usepackage[]{tocloft}
+% \usepackage{ulem}  % NO. changes \emph to underlining!
+\renewcommand{\cfttoctitlefont}{\hfill\huge\sf}  % Big "Contents" title
+\renewcommand{\cftaftertoctitle}{\hfill} % and hfill * 2 centres title. 
+\renewcommand{\cftsecfont}{\sf\large}        % section titles in SF, Large.
+\renewcommand{\cftsubsecfont}{\sf}             % subsections are SF
+\renewcommand{\cftsubsecpagefont}{\sf}    % page numbers in sans serif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% the following fails to fix the irritating utf16 messages.
+% \hypersetup{unicode=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "NotoSerifRegular" "DejaVu Serif"
+\font_sans "NotoSansLight" "DejaVu Sans"
+\font_typewriter "beramono" "DejaVu Sans Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 90
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 9
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #1c71d8
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A rose is a rose is enough
+\end_layout
+
+\begin_layout Subtitle
+Programming part 11:
+ More thoughts on naming
+\end_layout
+
+\begin_layout Author
+
+\family sans
+\size small
+Dr Jo
+\end_layout
+
+\begin_layout Date
+
+\family sans
+\size footnotesize
+2026-10-25
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Ideogram_rose_2_cut.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A graphic in which the word ROSE is spelt out in roses,
+ with thorny stems a bit more prominent than you might expect.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\size small
+\emph on
+An elderly gentleman is taken to his general practitioner by his wife,
+ who has some concerns about his cognitive function.
+ As part of her assessment,
+ the GP asks:
+\end_layout
+
+\begin_layout Quote
+
+\size small
+\emph on
+“Mr Simonyi,
+ what did you have for breakfast today?”
+\end_layout
+
+\begin_layout Quote
+
+\size small
+\emph on
+The man responds “What’s the name?
+ Uhh.
+ y’know,
+ thingy.
+ The flower.
+ Pretty,
+ with thorns.”
+\end_layout
+
+\begin_layout Quote
+
+\size small
+\emph on
+The doctor pauses,
+ puzzled for a moment,
+ and asks “Do you mean a rose?”
+\end_layout
+
+\begin_layout Quote
+
+\size small
+\emph on
+“That’s right.” He turns to his wife “Rose,
+ what did I have for breakfast?”
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/text_split_short.whole' startComment=`==' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+BANG SORT Forward SPLIT </
+\backslash
+W*
+\backslash
+s+
+\backslash
+W*/> LOWERCASE < Text goes here >
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If you look at the text of the above joke,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ perhaps:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+BANG SORT Forward SPLIT </
+\backslash
+W*
+\backslash
+s+
+\backslash
+W*/> LOWERCASE < Text goes here >
+\end_layout
+
+\end_inset
+
+ and put aside its meaning for a moment,
+ you’ll see that some words occur more often than others.
+ For example,
+ we have two ‘a’s;
+ two instances of ‘asks’ and ‘did’;
+ three ‘for’s,
+ four copies of ‘his’ and five of ‘the’.
+ Words like ‘practitioner’ and ‘expressed’ are all alone,
+ as are ‘thorns’ and ‘gentleman’.
+ But we do have two roses and two breakfasts.
+\end_layout
+
+\begin_layout Standard
+It’s a strange observation that in larger bodies of text from many natural languages,
+ the most commonly used word occurs about twice as often as the next,
+ three times as common as the third,
+ and so on.
+ We’re getting hints of this here.
+\end_layout
+
+\begin_layout Standard
+You may even have bumped into 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zipf’s law"
+target "https://en.wikipedia.org/wiki/Zipf's_law"
+literal "false"
+
+\end_inset
+
+—
+if you rank words,
+ sorting by the frequency f with which they are used in written texts,
+ then for a given rank r:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Eqn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\propto\frac{1}{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Linguists being what they are,
+ some have fancied this up a bit along the lines of:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Eqn
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\propto\frac{1}{\left(r+b\right)^{a}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $a$
+\end_inset
+
+ is about 1 and 
+\begin_inset Formula $b$
+\end_inset
+
+ is about 2.7.
+ Needless to say,
+ the idea predates the American linguist George 
+\series bold
+Kingsley Zipf
+\series default
+ by many years,
+ but he popularised it,
+ and his name
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Pronounced ‘Ziff’.
+\end_layout
+
+\end_inset
+
+ was strange enough to be sticky.
+ There has been a lot of speculation about how this ‘law’ comes about,
+ with several possible explanations:
+\end_layout
+
+\begin_layout Enumerate
+Successful words become more popular.
+\end_layout
+
+\begin_layout Enumerate
+People are just lazy (“The principle of least effort”).
+\end_layout
+
+\begin_layout Enumerate
+Stochastic monkeys banging on keyboards to make words at random
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+With a fixed probability of hitting each letter (or a space).
+\end_layout
+
+\end_inset
+
+ may generate words following Zipf’s law.
+\end_layout
+
+\begin_layout Standard
+More technically still,
+ Zipf’s law is a ‘power law’ 
+\begin_inset CommandInset href
+LatexCommand href
+name "related to the Pareto distribution"
+target "https://pages.cs.wisc.edu/~bart/736/papers/PowerLawTutorial.html"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Brevity
+\end_layout
+
+\begin_layout Standard
+But there’s another,
+ similar law in linguistics.
+ If you look back at the words at the start,
+ shorter words generally seem to be used more often.
+ This is sometimes stretched out to “Zipf’s law of abbreviation”—
+but more commonly it’s just the ‘
+\begin_inset CommandInset href
+LatexCommand href
+name "brevity law"
+target "https://en.wikipedia.org/wiki/Brevity_law"
+literal "false"
+
+\end_inset
+
+’,
+ a more concise name :)
+\end_layout
+
+\begin_layout Standard
+This does seem to work with natural language,
+ but can we use it to good effect when building computer languages?
+ I think so.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+There’s also evidence that lexical token usage in Java,
+ C and C++ 
+\begin_inset CommandInset href
+LatexCommand href
+name "follow similar laws"
+target "https://www.sciencedirect.com/science/article/abs/pii/S0306457309000119"
+literal "false"
+
+\end_inset
+
+.
+ Oral language 
+\begin_inset CommandInset href
+LatexCommand href
+name "has also been explored"
+target "https://pmc.ncbi.nlm.nih.gov/articles/PMC6731709/"
+literal "false"
+
+\end_inset
+
+ (in people from central Ohio),
+ even in 
+\begin_inset CommandInset href
+LatexCommand href
+name "spoken dialogues"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ If you end up playing with my esolang 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia"
+target "https://drjo.substack.com/p/the-naming"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ the built-in COMMANDs should make this obvious.
+\end_layout
+
+\begin_layout Standard
+A commonly-used command is likely short.
+ For example,
+ to increment a value I use UP rather than INC or INCREMENT;
+ decrement is DN.
+ I chose LEN over LENGTH.
+ Some commands are deliberately longer:
+ PRECISION,
+ PASSWORD,
+ UPPERCASE and IMMORTALIZE should therefore make you think before you use them.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We naturally can’t say how people will use a general purpose language,
+ so you might find engineers mildly cursing ARCCOS,
+ and those doing time-zone arithmetic sweating over JULIAN.
+ Like everything else,
+ balance is a subjective concept that can start wars.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I’ve also tried to use this idea subtly elsewhere.
+ In modern programming,
+ it’s conventional to refer to boolean values as “true” or “false”
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Or ‘True’ and ‘False’;
+ or ‘TRUE’ and ‘FALSE’,
+ and so on.
+\end_layout
+
+\end_inset
+
+—
+but I spent quite some time exploring alternatives,
+ and settled on Yes and No.
+ Less typing.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[Monty Python Hungarian phrasebook sketch] 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "https://www.youtube.com/watch?v=grA5XmBRC6g"
+target "https://www.youtube.com/watch?v=grA5XmBRC6g"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Hungarian notation,
+ anyone?
+\end_layout
+
+\begin_layout Standard
+Putting aside Monty Python,
+ ‘Hungarian notation’ is the practice of naming variables based on their type.
+ It comes from the US-centric belief that Hungarians are a bit weird because they put their surname before their forename.
+ Hungarian notation does look weird,
+ though.
+\end_layout
+
+\begin_layout Standard
+Examples might include iLength for an integer,
+ strName for a string,
+ pFoo for a pointer,
+ u32Danger for an unsigned 32-bit integer,
+ and so on.
+ It was extensively used by 
+\begin_inset CommandInset href
+LatexCommand href
+name "Simonyi Károly"
+target "https://en.wikipedia.org/wiki/Charles_Simonyi"
+literal "false"
+
+\end_inset
+
+,
+ the Hungarian software developer who moved from Xerox PARC to become Chief Architect at Microsoft.
+ AKA 
+\series bold
+Charles Simonyi
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Hungarian notation is now pretty much a legacy,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Microsoft now 
+\begin_inset CommandInset href
+LatexCommand href
+name "discourages"
+target "https://learn.microsoft.com/en-us/windows/win32/learnwin32/windows-coding-conventions"
+literal "false"
+
+\end_inset
+
+ Hungarian notation;
+ but older C/C++ source code in Windows is still infested with it.
+\end_layout
+
+\end_inset
+
+ mostly because it’s been discarded in favour of strong typing.
+ The machine knows the type,
+ and that’s considered good enough.
+ Trust the Machine.
+\end_layout
+
+\begin_layout Standard
+This particular transition is however a two-edged sword.
+ Early on in our journey,
+ we discovered how in C++,
+ ‘foo’ 
+\begin_inset CommandInset href
+LatexCommand href
+name "might refer to"
+target "https://drjo.substack.com/i/212130688/inscrutable-in-c"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ a variable,
+ a function,
+ a class,
+ a class template,
+ a label,
+ an enumerator,
+ and a lot more.
+ Me,
+ I think it’s important not only to ensure that something does what it should,
+ but also that the label on the tin is distinct and legible.
+ Let’s dig a bit deeper.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/braised_eel_duckduckgo_search.webp
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Eels in a tin,
+ from Duckduckgo—
+the original has vanished!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[Picture of flesh in an opened tin,
+ with somewhat obscure labelling.]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Types and polymorphism
+\end_layout
+
+\begin_layout Standard
+Programmers and many others will be familiar with the concept of polymorphism.
+ Despite the length of the name,
+ the concept is simple.
+ If the ADD command can add integers,
+ it makes sense for it also to be able to 
+\begin_inset CommandInset href
+LatexCommand href
+name "add two floating point numbers"
+target "https://drjo.substack.com/i/212226868/but"
+literal "false"
+
+\end_inset
+
+
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ without fuss.
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+ADD 0.1~ 0.2~
+\family default
+,
+ naturally giving 0.30000000000000004.
+\end_layout
+
+\begin_layout Standard
+Similarly,
+ we shouldn’t anticipate surprises with fixed point numbers:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+ADD 0.1 0.2
+\family default
+,
+ producing 0.3.
+\end_layout
+
+\begin_layout Standard
+We can even extend this idea.
+ For example,
+ let’s say we are able to make a Button widget and draw it on screen.
+ We decide to PUT it somewhere,
+ like:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+PUT xCoord yCoord <My button>
+\end_layout
+
+\begin_layout Standard
+But what if we later want to ask a question like “Where is the button?”?
+ In early Lisp,
+ for example,
+ a ‘question’ word would often end in P,
+ as in ‘lessp’,
+ ‘greaterp’,
+ ‘zerop’,
+ ‘onep’,
+ ‘floatp’ and so on.
+ In 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ we might extend our polymorphism:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+PUT * <My widget>
+\end_layout
+
+\begin_layout Standard
+You can take ‘*’ as being equivalent to a question like ‘Where?’ or ‘What?’
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The attentive reader will work out that the question returns two coordinates.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly,
+ if we want to know whether the HELP command exists,
+ we might say 
+\family typewriter
+COMMAND * <HELP>
+\family default
+ —
+ which returns the value Yes.
+ We can even be more emphatic.
+ When we say 
+\family typewriter
+SORT Forward COMMAND * *
+\family default
+ here’s what we get
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+SORT Forward DUAL _each_ LEN _over_ COPY COMMAND * * 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+How does the following 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ code work?
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+SORT Forward DUAL _each_ LEN _over_ COPY COMMAND * * 
+\end_layout
+
+\begin_layout Plain Layout
+Parse using 
+\begin_inset CommandInset href
+LatexCommand href
+name "POWER evaluation"
+target "https://drjo.substack.com/i/213376055/power"
+literal "false"
+
+\end_inset
+
+,
+ from right to left as always.
+ It produces \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Quote
+
+\size scriptsize
+((2 AT) (2 CX) (2 DN) (2 DO) (2 EQ) (2 FX) (2 GO) (2 LN) (2 MY) (2 OF) (2 OR) (2 UP) (3 ABS) (3 ADD) (3 AND) (3 ARY) (3 BIN) (3 BUG) (3 CAN) (3 CHR) (3 CNS) (3 COL) (3 COS) (3 CRC) (3 CUT) (3 DIV) (3 EXP) (3 FIX) (3 GEQ) (3 GTR) (3 HAS) (3 INT) (3 INV) (3 KEY) (3 LAY) (3 LEN) (3 LEQ) (3 LOG) (3 MAP) (3 MOD) (3 MUL) (3 NAG) (3 NEG) (3 NEQ) (3 NEW) (3 NOT) (3 NOW) (3 POW) (3 PUT) (3 ROT) (3 ROW) (3 RUN) (3 SAY) (3 SEQ) (3 SET) (3 SIN) (3 SUB) (3 TAN) (3 VER) (3 XOR) (4 ATAN) (4 BANG) (4 BANK) (4 BI
+ND) (4 BITS) (4 BOOL) (4 CEIL) (4 COPY) (4 DRAW) (4 DUAL) (4 EXIT) (4 FAIL) (4 FAKE) (4 FIND) (4 HEAD) (4 HELP) (4 HERE) (4 HIDE) (4 HUNT) (4 INFO) (4 JOIN) (4 JUNK) (4 KEEP) (4 KILL) (4 LESS) (4 LINK) (4 MANY) (4 MARK) (4 MASK) (4 MODE) (4 NODE) (4 NOUN) (4 NULL) (4 ONLY) (4 PAGE) (4 PART) (4 PEND) (4 POST) (4 SAVE) (4 SEEN) (4 SIGN) (4 SIZE) (4 SORT) (4 SQRT) (4 SURE) (4 SWAP) (4 TAKE) (4 TALK) (4 TEXT) (4 TIME) (4 TRIM) (4 TURN) (4 TYPE) (4 VERB) (4 VIEW) (4 WARP) (4 YANK) (4 ZONE) (5 APPLY) (
+5 ARITY) (5 CHECK) (5 CLEAN) (5 CLICK) (5 FLOAT) (5 FLOOR) (5 FRILL) (5 INDEX) (5 INPUT) (5 LOCAL) (5 MATCH) (5 PRINT) (5 ROUND) (5 SHEET) (5 SMALL) (5 SOUND) (5 SPLIT) (5 STRIP) (5 STYLE) (5 TABLE) (5 TITLE) (5 TWEAK) (5 USERS) (5 VALUE) (5 VIDEO) (6 APPEND) (6 ARCCOS) (6 ARCSIN) (6 ARCTAN) (6 ATTACH) (6 BIGGER) (6 COLOUR) (6 FILTER) (6 JULIAN) (6 LATEST) (6 LAYOUT) (6 MATRIX) (6 MODIFY) (6 MODULE) (6 NEARLY) (6 PERSON) (6 RENAME) (6 UNIQUE) (6 WIDGET) (7 ANTILOG) (7 BETWEEN) (7 COMMAND) (7 DISA
+BLE) (7 DYNAMIC) (7 LITTLER) (7 MESSAGE) (7 PERMUTE) (7 PRIVATE) (7 REPLACE) (7 REVERSE) (7 VIOLATE) (8 DESCRIBE) (8 PASSWORD) (8 PROGRESS) (8 RESTRICT) (9 ACCESSION) (9 CONSTRAIN) (9 LOWERCASE) (9 PRECISION) (9 UPPERCASE) (11 IMMORTALIZE))
+\end_layout
+
+\begin_layout Quote
+The hint here is that DUAL simply leaves its two arguments as they are—
+and fails if two arguments aren’t present!
+ Then _over_ pairs up corresponding values in the two copies of the list.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Quote
+
+\size footnotesize
+(ABS ACCESSION ADD AND ANTILOG APPEND APPLY ARCCOS ARCSIN ARCTAN ARITY ARY AT ATAN ATTACH BANG BANK BETWEEN BIGGER BIN BIND BITS BOOL BUG CAN CEIL CHECK CHR CLEAN CLICK CNS COL COLOUR COMMAND CONSTRAIN COPY COS CRC CUT CX DESCRIBE DISABLE DIV DN DO DRAW DUAL DYNAMIC EQ EXIT EXP FAIL FAKE FILTER FIND FIX FLOAT FLOOR FRILL FX GEQ GO GTR HAS HEAD HELP HERE HIDE HUNT IMMORTALIZE INDEX INFO INPUT INT INV JOIN JULIAN JUNK KEEP KEY KILL LATEST LAY LAYOUT LEN LEQ LESS LINK LITTLER LN LOCAL LOG LOWERCASE 
+MANY MAP MARK MASK MATCH MATRIX MESSAGE MOD MODE MODIFY MODULE MUL MY NAG NEARLY NEG NEQ NEW NODE NOT NOUN NOW NULL OF ONLY OR PAGE PART PASSWORD PEND PERMUTE PERSON POST POW PRECISION PRINT PRIVATE PROGRESS PUT RENAME REPLACE RESTRICT REVERSE ROT ROUND ROW RUN SAVE SAY SEEN SEQ SET SHEET SIGN SIN SIZE SMALL SORT SOUND SPLIT SQRT STRIP STYLE SUB SURE SWAP TABLE TAKE TALK TAN TEXT TIME TITLE TRIM TURN TWEAK TYPE UNIQUE UP UPPERCASE USERS VALUE VER VERB VIDEO VIEW VIOLATE WARP WIDGET XOR YANK ZONE)
+\end_layout
+
+\begin_layout Standard
+Those two stars are pretty emphatic.
+ “What??” Many of those commands will themselves have * options.
+\end_layout
+
+\begin_layout Section*
+“We’re all consenting adults here”
+\end_layout
+
+\begin_layout Quotation
+“Rules are for the obedience of fools and the guidance of wise men”—
+
+\series bold
+Harry Day
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+The title of this section comes from Python’s originator (and BDFL),
+ 
+\series bold
+Guido van Rossum
+\series default
+,
+ who pointed out that it’s often smarter to have sensible community behaviour than formidable restrictions.
+\end_layout
+
+\begin_layout Standard
+We find a hint of this principle in many languages.
+ Python has no constants,
+ but something like FOO_VALUE is clearly a constant,
+ by convention alone.
+ In Common Lisp there’s a 
+\begin_inset CommandInset href
+LatexCommand href
+name "bunch of sensible naming conventions"
+target "https://llthw.common-lisp.dev/1-01-07-style-guide.html"
+literal "false"
+
+\end_inset
+
+,
+ for example special global variables are signified with ‘earmuffs’,
+ for example *package* and *print-base*.
+ Ruby uses an exclamation mark to end off a dangerous method.
+ Rust 
+\begin_inset CommandInset href
+LatexCommand href
+name "distinguishes between"
+target "https://rust-lang.github.io/api-guidelines/naming.html"
+literal "false"
+
+\end_inset
+
+ UpperCamelCase for Types and Traits,
+ and snake_case for many other things.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ankylosing_spondylitis_composite.webp
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset CommandInset href
+LatexCommand href
+name "Ankylosing"
+target "https://commons.wikimedia.org/wiki/File:AS_trask_closeup.png"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "spondylitis"
+target "https://commons.wikimedia.org/wiki/File:Bamboo_spine_ankylosing_spondylitis.jpg"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "composite"
+target "https://commons.wikimedia.org/wiki/File:0510_Spondylitis_ankylosans_(morbus_bechterew)_anagoria.JPG"
+literal "false"
+
+\end_inset
+
+ showing rigid spine,
+ from Wikimedia Commons
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[A composite of old images related to ankylosing spondylitis,
+ one of the spondyloarthropathies.
+ These days,
+ such deformities should be rare,
+ due to better management.
+ On the left we have grossly deformed Leonard Trask (1857),
+ in the centre is an x-ray of a ‘bamboo spine’,
+ and on the right there’s a pathological specimen showing the same thing.]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+A step too far?
+\end_layout
+
+\begin_layout Standard
+But at first glance,
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ seems to be flagrantly ignoring Guido.
+ We have hard rules.
+ COMMANDs are uppercase;
+ verbs are lowercase;
+ _adverbs_ start and end in an underscore,
+ and ‘local’ variables are parochialVariables in camelCase.
+\end_layout
+
+\begin_layout Standard
+Actually,
+ all we’ve done is build a solid spine.
+ That doesn’t mean our language has to have ankylosing spondylitis,
+ though—
+a condition where the spine fuses into a rigid,
+ inflexible,
+ injury-prone rod.
+ Consenting adults can also \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+SAY <pretty much anything they want (☠!
+ 
+\backslash
+128369 ) between 
+\family sans
+😊
+\family typewriter
+ a pair of chevrons.>
+\end_layout
+
+\begin_layout Standard
+And it turns out that,
+ for example,
+ widget names are really just strings in <chevrons>.
+ We can be flexible,
+ without going crazy.
+ Consider \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Section*
+Modules
+\end_layout
+
+\begin_layout Standard
+Every language needs some way of extending itself—
+and importing useful things.
+ Object-oriented languages often inherit from constructs that are meant to be reusable;
+ functional languages concentrate on functions,
+ which really are reusable.
+ Some languages have #include statements.
+ Others say ‘load’,
+ ‘import’,
+ ‘using’,
+ or ‘require’,
+ combined with macros,
+ patching and a lot more.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ has modules.
+ Like this:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+MODULE <normal>
+\end_layout
+
+\begin_layout Standard
+Generally,
+ modules set verbs.
+ Here’s where our exploration of Zipf’s various laws takes hold.
+ If you look at the normal module,
+ it’s littered with short names,
+ like setverb,
+ self,
+ isnoun,
+ help,
+ pair and triple.
+ These are actually enormously useful,
+ if used wisely.
+ For example,
+ pair joins two strings together,
+ with a space between.
+ You can work out what triple and quad do :)
+\end_layout
+
+\begin_layout Standard
+But here’s the thing.
+ In 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ we have the WORM rule—
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Write Once Read Many"
+target "https://drjo.substack.com/i/219692586/1-the-worst-decision"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ We simply cannot re-define a Noun,
+ or a verb.
+ If you try this,
+ you’ll force an error.
+ What does this imply?
+\end_layout
+
+\begin_layout Section*
+Responsibility
+\end_layout
+
+\begin_layout Standard
+We are all responsible for what we make,
+ to some degree.
+ It’s nice,
+ convenient and lazy to choose short names.
+ But let’s face it—
+by Zipf’s law,
+ only a small proportion of words will be used often.
+ Language doesn’t work any other way,
+ it seems,
+ whether it’s ‘natural’ or ‘artificial’.
+\end_layout
+
+\begin_layout Standard
+Every non-trivial act of programming in some way extends the language.
+ It’s possible that in due course,
+ some of our creations will achieve general use,
+ but most just won’t.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Let’s be honest.
+ Most entire languages don’t expand the programming space that much!
+ 
+\end_layout
+
+\end_inset
+
+ If we choose short names from the start,
+ we encroach on the programming space and invite collisions.
+ Rather be conservative.
+ Let’s turn this into a strong principle,
+ for the guidance of the wise:
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Keep your names long.
+\end_layout
+
+\begin_layout Standard
+I often find that when I’m programming,
+ certain patterns recur again and again.
+ Over time,
+ these may become candidates for general use,
+ perhaps with short-ish names.
+ But to start,
+ it may be smarter to name our verbs along these lines:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+SET <tlc_specific_verb> < \SpecialChar ldots
+ my code here \SpecialChar ldots
+ >
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ where ‘tlc’ says which module the verb belongs to.
+ Just make sure that the label says what’s on the can.
+ I think that’s a good programming principle,
+ whatever language you’re programming in.
+ Would that it were more respected.
+\end_layout
+
+\begin_layout Standard
+One more thing.
+ Wouldn’t it be nice if we could be sure that something like
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+<my_verb>
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ didn’t ever appear in a module?
+ Not as a rule,
+ but in the consenting adult sense,
+ a strong guideline.
+ This would mean that you could freely use <my_ without ever worrying about a collision.
+ Wouldn’t that be nice?
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+➵
+\family default
+ In my next post,
+ for those hardy souls who have kept up with the above,
+ I’m going to describe how to build the core of a computer language in just a few lines.
+ Promise.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+My 2c,
+ Dr Jo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ This symbol is used to indicate posts where I’ve discussed the flagged topic in more detail.
+\end_layout
+
+\begin_layout Quotation
+Copyright © 2026 JM van Schalkwyk
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+This work is licensed under the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia Public Licence, version 1"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+.
+ You may convey it only together with its 
+\begin_inset CommandInset href
+LatexCommand href
+name "Corresponding Literate Source Document"
+target "https://github.com/jvanschalkwyk/zyzyxia/blob/main/Programming_part_11.lyx"
+literal "false"
+
+\end_inset
+
+,
+ as that Licence requires.
+ All rights are reserved in respect of AI Training Use,
+ including for the purposes of any text-and-data-mining exception or opt-out provision under applicable law.
+ Submitting this work as input to a Generative AI System is prohibited.
+\end_layout
+
+\end_body
+\end_document

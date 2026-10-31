@@ -1,0 +1,1838 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% SPDX-FileCopyrightText: 2026 JM van Schalkwyk
+% SPDX-License-Identifier: LicenseRef-Zyzyxia-1
+
+% for: LaTeX DogWagger version=`4.0.1' fileTarget=`dummy.txt' startComment=`#' noWarn=`yes'
+%========================================================================
+% LaTeX Dogwagger takes LaTeX files and pulls out verbatim comments,    %
+% concatenating the text enclosed in these verbatim comments            %
+% into executable code. Copyright (C) J van Schalkwyk, 2005.            %
+% LaTeX Dogwagger is made available under the GNU Public Licence (GPL). %
+% To NOT include a particular verbatim section, a comment line          %
+%   containing the text: DogWagger dogsAllowed=`no' must precede *ANY*  %
+%   line containing the text \begin{verbatim} !                         %
+%===============================================================
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "en"
+\defaultfontfeatures{Mapping=tex-text}
+%\usepackage{hyperref} 
+
+% Colour hyperlinks: 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={blue!80!black},
+    urlcolor={blue!60!black},
+    citecolor={green!50!black}
+}
+
+% Suppress Figure 1 etc. 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compact]{titlesec}
+% \hyphenation{}
+\titleformat{\section}{\Large\sffamily}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\large\sffamily}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0.5em}{}
+%%%%%%%%%%%%
+\titlespacing{\section}{0em}{2em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0em}
+%%%%%%%%%%%%
+
+
+% Modify format of Table Of Contents:
+\usepackage[]{tocloft}
+% \usepackage{ulem}  % NO. changes \emph to underlining!
+\renewcommand{\cfttoctitlefont}{\hfill\huge\sf}  % Big "Contents" title
+\renewcommand{\cftaftertoctitle}{\hfill} % and hfill * 2 centres title. 
+\renewcommand{\cftsecfont}{\sf\large}        % section titles in SF, Large.
+\renewcommand{\cftsubsecfont}{\sf}             % subsections are SF
+\renewcommand{\cftsubsecpagefont}{\sf}    % page numbers in sans serif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% the following fails to fix the irritating utf16 messages.
+% \hypersetup{unicode=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "NotoSerifRegular" "DejaVu Serif"
+\font_sans "NotoSansLight" "DejaVu Sans"
+\font_typewriter "beramono" "DejaVu Sans Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 90
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 9
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #1c71d8
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A language in 7 lines
+\end_layout
+
+\begin_layout Subtitle
+Programming part 12:
+ Use what you have
+\end_layout
+
+\begin_layout Author
+
+\family sans
+\size small
+Dr Jo
+\end_layout
+
+\begin_layout Date
+
+\family sans
+\size footnotesize
+2026-11-01
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Double_rainbow_over_Lake_Mulgrave_-_panoramio-Mantiuk_crop.webp
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Double rainbow 
+\begin_inset CommandInset href
+LatexCommand href
+name "over lake Mulgrave"
+target "https://commons.wikimedia.org/wiki/File:Double_rainbow_over_Lake_Mulgrave_-_panoramio.jpg"
+literal "false"
+
+\end_inset
+
+ (after Mantiuk tone mapping)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Picture of a lake with a symmetrical reflection of primary and secondary rainbows.
+ There are dark trees on the shore,
+ and the water is brownish and somewhat disturbed.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We humans often tend to over-complicate things.
+ In the past,
+ I’ve talked about ‘
+\begin_inset CommandInset href
+LatexCommand href
+name "Lies to Children"
+target "https://drjo.substack.com/i/162237869/lies-to-children"
+literal "false"
+
+\end_inset
+
+’,⌘ where we tell a convenient ‘lie’ in order to get a concept across,
+ while the truth—
+or a better model—
+is more mysterious and difficult.
+ The example I gave was the Bohr model of the hydrogen atom,
+ which is pretty much wrong in every particular.
+\end_layout
+
+\begin_layout Standard
+On reflection though,
+ there’s a sort of polar opposite,
+ where we have a damn good model that’s also simple,
+ and we clothe this in mystery to the point where people are so intimidated they give up.
+\end_layout
+
+\begin_layout Standard
+Take rainbows.
+ If we read “
+\begin_inset CommandInset href
+LatexCommand href
+name "The Theory of the Rainbow"
+target "http://bionics.seas.ucla.edu/education/MAE_182A/Airy_Eq_Rainbows.pdf"
+literal "false"
+
+\end_inset
+
+” by H.
+ Moyses Nussenzveig in Scientific American from 1977,
+ we might come away thinking that in order to ‘really’ understand rainbows,
+ we need to embrace both the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Airy function"
+target "https://en.wikipedia.org/wiki/Airy_function"
+literal "false"
+
+\end_inset
+
+ (for a basic understanding of the intensity of scattered light within the rainbow) and fine computation of how electromagnetic plane waves are scattered by raindrops,
+ involving “complex angular momentum” or the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Sommerfeld-Watson transform"
+target "https://scipedia.bohrium.com/en/sciencepedia/feynman/keyword/complex_angular_momentum"
+literal "false"
+
+\end_inset
+
+!
+ All of which might muddy the elegant,
+ basic maths of the rainbow for the average reader,
+ explained 
+\begin_inset CommandInset href
+LatexCommand href
+name "rather well by Descartes in 1637"
+target "https://www.ams.org/publicoutreach/feature-column/fcarc-rainbows"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Descartes_Rainbow.webp
+	scale 24
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Descartes’ 
+\begin_inset CommandInset href
+LatexCommand href
+name "explanation of the rainbow"
+target "https://commons.wikimedia.org/wiki/File:Descartes_Rainbow.png"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Descartes’ original diagram,
+ showing a man (with a sword) viewing a stylised rainbow,
+ with a single,
+ huge droplet showing the subtle geometry,
+ all meticulously labelled.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The sunlight comes in from A,
+ it is refracted in the spherical raindrop,
+ internally reflects once off C,
+ exits at D and is perceived by the observer at E.
+ The geometry is such that the angle DEM is about 42 degrees,
+ but because different wavelengths of light undergo different degrees of refraction (Newton’s prism experiments of 1666),
+ the spectrum is displayed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Similar simple reasoning"
+target "https://www.physicstheories.com/physics-of-rainbows"
+literal "false"
+
+\end_inset
+
+ explains different rainbows seen with droplets that have a different refractive index,
+ as well as a fainter secondary rainbow with reversed colours 10 degrees outside the primary one (two internal reflections),
+ and the dark area between the primary and secondary rainbows.
+ And yes,
+ of course it’s more complex,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+There are third,
+ fourth and fifth order rainbows—
+and beyond.
+ Fake-looking triple rainbows arise due to reflection of sunlight off a body of water.
+ Supernumerary bands (‘stacker rainbows’) can arise from optical interference.
+ And then there’s the polarisation,
+ and all that complex maths.
+ (Don’t mention glories,
+ which aren’t rainbows).
+\end_layout
+
+\end_inset
+
+ but we can still wonder and understand.
+\end_layout
+
+\begin_layout Standard
+Similarly,
+ we might expect that the internal workings of an entire computer language would be deep,
+ dark,
+ arcane and inscrutable—
+and so on with many other complex-seeming things,
+ both natural and created.
+\end_layout
+
+\begin_layout Standard
+It ain’t necessarily so!
+ I’d even go so far as to say that if something looks utterly inscrutable,
+ we often just need to explain better—
+or it’s built wrong,
+ despite appearing to work.
+ Let’s try this idea with Zyzyxia.
+ Soon,
+ we’ll write the core of the entire language in just seven lines.
+ Promise.
+ First,
+ we need a little spadework.
+\end_layout
+
+\begin_layout Section*
+What we want
+\end_layout
+
+\begin_layout Standard
+We’ve already met the basic idea:
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "POWER"
+target "https://drjo.substack.com/i/213376055/power"
+literal "false"
+
+\end_inset
+
+.⌘ Write 
+\begin_inset CommandInset href
+LatexCommand href
+name "Polish notation"
+target "https://drjo.substack.com/p/lets-polish-our-polish"
+literal "false"
+
+\end_inset
+
+,⌘ throw away the parentheses,
+ and parse from right-to-left.
+ This gives us 
+\begin_inset CommandInset href
+LatexCommand href
+name "the simplicity of J"
+target "https://drjo.substack.com/i/212130688/j-has-parts-of-speechhttps://drjo.substack.com/i/212130688/j-has-parts-of-speech"
+literal "false"
+
+\end_inset
+
+⌘ and 
+\begin_inset CommandInset href
+LatexCommand href
+name "Forth"
+target "https://drjo.substack.com/i/213376055/going-forth-using-reverse-polish"
+literal "false"
+
+\end_inset
+
+,⌘ with the elegance of 
+\begin_inset CommandInset href
+LatexCommand href
+name "Lisp"
+target "https://drjo.substack.com/i/213376055/lisp"
+literal "false"
+
+\end_inset
+
+.⌘
+\end_layout
+
+\begin_layout Standard
+The question is:
+ “How do we implement this,
+ simply?”.
+ We can limit things a bit by deciding upfront that our language will be Web-based.
+ This in turn invites a number of secondary questions,
+ the most pressing being “Which language should I use to write it?”
+\end_layout
+
+\begin_layout Standard
+Some languages have even been written mostly in themselves.
+ For example,
+ in about 1961,
+ Timothy Hart and Michael Levin 
+\begin_inset CommandInset href
+LatexCommand href
+name "wrote"
+target "https://texdraft.github.io/lisp-compiler/internals.html"
+literal "false"
+
+\end_inset
+
+ the first successful Lisp compiler—
+in Lisp.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+An elegant,
+ neatly-structured version is available if you’re interested.
+ It reads quite well.
+\end_layout
+
+\end_inset
+
+ This was called ‘bootstrapping’,
+ from the apparently impossible feat of pulling yourself up by your own bootstraps.
+ It’s not that mysterious though:
+ first write a Lisp interpreter,
+ then use this to interpret the Lisp code,
+ and then use Lisp to write your compiler.
+\end_layout
+
+\begin_layout Standard
+Which for the non-computer people in the room,
+ invites further questions:
+ “What’s an interpreter?”,
+ “What’s a compiler?”,
+ and “Which one should we build?”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/geeks4geeks_compiled_interpreted.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Compiler v Interpreter from GeeksForGeeks
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Simple graphic of compilation (code⇒executable) on the left,
+ and interpreting (line by line⇒parse⇒output) on the right.
+ Note that in the examples,
+ JavaScript now uses just-in-time compilation,
+ despite being categorised as an ‘Interpreter’.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Compilers,
+ then
+\end_layout
+
+\begin_layout Standard
+A salacious comparison between interpreted and compiled code is that it’s the difference between watching sex and having sex.
+ If a program is interpreted,
+ then every instruction needs to be read in,
+ the interpreter needs to say “What do I do next?”—
+and then the interpreter painstakingly does what is required.
+ A compiler translates the code into the native language used by the processor,
+ and then just does it.
+ Perhaps an even more clumsy analogy is that it’s the difference between (a) having sex and (b) painstakingly plodding through a sex manual,
+ sentence-by-sentence,
+ saying “What’s the next step then?” Um.
+\end_layout
+
+\begin_layout Standard
+In further apparent support of compilation,
+ it’s not unusual for compiled code to run one or even two orders of magnitude faster than interpreted instructions.
+ Compilation however has its down-side.
+ Optimised compilation can take ages.
+ Actually writing the compiler for a given language is often non-trivial.
+ And the code that is produced tends to be inscrutable,
+ so debugging can be,
+ well,
+ interesting.
+\end_layout
+
+\begin_layout Standard
+Interpretation has more subtle advantages.
+ If your instructions are terse and the interpreter is small,
+ you may even be able to fit the lot into a cache so that it just whirls around inside the processor.
+ Modern processors are grunty.
+\end_layout
+
+\begin_layout Standard
+We also find that in a given program,
+ most of the running is done in just a tiny portion of the code—
+so efficiency often comes from getting that code right.
+ As we saw with 
+\begin_inset CommandInset href
+LatexCommand href
+name "our Fibonacci code"
+target "https://drjo.substack.com/i/220506032/aww-lets-play-with-phyllotaxis"
+literal "false"
+
+\end_inset
+
+,⌘ it’s often more important to get the algorithm right than to worry about “compilation vs interpretation”.
+ Done right,
+ 
+\begin_inset Formula $F_{40,000}$
+\end_inset
+
+ was far faster than a naive 
+\begin_inset Formula $F_{40}$
+\end_inset
+
+.
+ There’s one other consideration that looms even larger.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/xkcd_compiling.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+XKCD 303:
+ `
+\begin_inset CommandInset href
+LatexCommand href
+name "Compiling"
+target "https://www.explainxkcd.com/wiki/index.php/303:_Compiling"
+literal "false"
+
+\end_inset
+
+'
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The classic cartoon.
+ An excellent explanation and full text are available by clicking the link below the image.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Use what you have
+\end_layout
+
+\begin_layout Quotation
+Reporter:
+ “Why did you want to climb Everest?”
+\end_layout
+
+\begin_layout Quotation
+George Mallory “Because it’s there” —
+ New York Times,
+ 18 March 1923 (
+\begin_inset CommandInset href
+LatexCommand href
+name "Perhaps"
+target "https://gripped.com/news/george-mallory-might-never-have-said-because-its-there-about-everest/"
+literal "false"
+
+\end_inset
+
+ a misattribution).
+\end_layout
+
+\begin_layout Standard
+There is a prevalent myth that if someone is smart,
+ insightful,
+ innovative—
+and they work hard enough for long enough—
+then generally,
+ they will succeed.
+ This is bolstered by two biases.
+ The first is an error of logic:
+ we see that people who succeed can often be shown to have been smart,
+ insightful,
+ innovative,
+ and hard-working.
+ Unfortunately,
+ this doesn’t tell us anything about the people who were smart,
+ insightful,
+ innovative,
+ worked their arses off—
+and failed.
+ Some people die on mountains,
+ you see.
+\end_layout
+
+\begin_layout Standard
+The other bias is that people who succeed tend to make damn sure that they rewrite history to show that they indeed were smart,
+ insightful,
+ innovative and hard-working,
+ even if the factors that actually drove their success were (a) luck,
+ (b) being in the right place at the right time,
+ (c) knowing the right people and (d) having wealthy parents.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Or stomping on the fingers of the opposition.
+ Their ‘smarts’ may be in non-traditional or even not-that-intelligent domains.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When it comes to computer languages,
+ things are even more fraught.
+ Right at the beginning,
+ it often seems to be the case that someone threw something together,
+ and it took off for reasons no better than there was no other less shitty language at the time (NOLSLATT).
+ Some languages arose out of personal projects infused with a bit of passion,
+ Python being the archetypal example.
+ Some like Smalltalk grew from kids’ education;
+ others like Pascal arose from adult didactics.
+ Perhaps C just met the need.
+ C++ was commissioned.
+ And others are just a mess.
+ Take JavaScript.
+\end_layout
+
+\begin_layout Standard
+But we will build Zyzyxia in JavaScript!
+ It may be shitty,
+ but it’s there.
+ A little more justification may be required,
+ though.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/mosaic_browser_screenshot.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Screenshot of archaic Mosaic browser
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A screenshot of a clunky webpage from the 90’s—
+ironically the “National Center for Supercomputing Applications at the University of Illinois”.
+ The layout is awful,
+ the links garish,
+ the background gray.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+A potted history of JavaScript
+\end_layout
+
+\begin_layout Standard
+A few years after I got onto the Internet,
+ I remember experimenting with the first web browser that really took off:
+ Mosaic.
+ Boy was it crappy.
+ In 1994 it was supplanted by Netscape Navigator.
+ This was still rather crap.
+ One of the biggest problems was that pages were 
+\begin_inset CommandInset href
+LatexCommand href
+name "static"
+target "https://en.wikipedia.org/wiki/Static_web_page"
+literal "false"
+
+\end_inset
+
+—
+so in 1995,
+ Netscape decided to add a programming language.
+ As Java was the flavour of the day,
+ this was the initial target,
+ with some elements from Lisp (Scheme,
+ to be precise).
+\end_layout
+
+\begin_layout Standard
+It was flung together,
+ and succeeded entirely due to NOLSLATT.
+ Microsoft soon muscled in (“
+\begin_inset CommandInset href
+LatexCommand href
+name "embrace, extend, extinguish"
+target "https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish"
+literal "false"
+
+\end_inset
+
+” anyone?) resulting in hugely variable behaviour across browsers.
+ Later,
+ things settled down into a NOLSLATT standard.
+\end_layout
+
+\begin_layout Standard
+Then in the mid-2000’s,
+ Mozilla Firefox shook things up,
+ and stole market from Microsoft.
+ A 2005 white paper spurred the development of a technique dubbed ‘Ajax’ that allowed the browser to load data ‘asynchronously’ in the background,
+ and in 2008 Google produced a JavaScript engine that compiled the code,
+ blitzing the competition.
+\end_layout
+
+\begin_layout Standard
+JavaScript had finally come of age,
+ and to this day,
+ the Web pretty much runs on it.
+ Which in some ways is a pity,
+ because it’s actually still mostly a bulky,
+ shitty language,
+ built around an even more bulky and crapulous document object model,
+ or DOM.
+ Note that ‘
+\begin_inset CommandInset href
+LatexCommand href
+name "crapulous"
+target "https://www.collinsdictionary.com/dictionary/english/crapulous"
+literal "false"
+
+\end_inset
+
+’ doesn’t mean crap—
+instead it means that it suffers from the consequences of excessive eating or alcohol consumption,
+ adequately describing the flatulently bloated DOM,
+ and supporting the conjecture that it was largely a by-product of beer and bad pizza.
+\end_layout
+
+\begin_layout Standard
+So,
+ let’s build a language in JavaScript!
+ But if it’s so shitty,
+ why use it?
+ One answer is the mountaineer’s one:
+ “Because it’s there”.
+ Another answer is NOLSLATT.
+ A third extends this second answer—
+TypeScript has some features that make it attractive to some developers,
+ but (a) is hugely dependent on one company,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Microsoft.
+\end_layout
+
+\end_inset
+
+ always a danger sign;
+ (b) obscures some things and obfuscates others;
+ and (c) is ultimately deviously translated to JavaScript,
+ anyway.
+\end_layout
+
+\begin_layout Standard
+Another ‘option’,
+ WebAssembly (
+\begin_inset CommandInset href
+LatexCommand href
+name "WASM"
+target "https://en.wikipedia.org/wiki/WebAssembly"
+literal "false"
+
+\end_inset
+
+) is currently a bit obscure and constrained,
+ and can be cumbersome.
+ And unless you want to write your own browser and language and enter into an arse-bashing competition with the ultimate porcupine,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Google.
+ Practically,
+ Chrome has a monopoly.
+ This is why I use Mozilla Firefox.
+\end_layout
+
+\end_inset
+
+ those are pretty much your choices.
+ So \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Section*
+Seven lines
+\end_layout
+
+\begin_layout Standard
+This is the hot core of Zyzyxia,
+ written in JavaScript:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+while(XEC.i >= 0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+  { A = XEC.R[XEC.i];
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    XEC.i --;
+\end_layout
+
+\begin_layout Plain Layout
+
+  if( JEWEL[A[0]](A) ) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { return(true);
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  };
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ and that’s pretty much that!
+ This implements POWER evaluation.
+ The ‘while’ loop just goes round and round until i runs down.
+ More explanation is clearly needed,
+ but not that much:
+\end_layout
+
+\begin_layout Itemize
+Code is in the form of a sequence of ‘Atoms’,
+ lined up in XEC.R.
+\end_layout
+
+\begin_layout Itemize
+We identify the current Atom by the index in XEC.i.
+ We sequentially pull out each atom A using A = XEC.R[XEC.i];
+\end_layout
+
+\begin_layout Itemize
+To implement POWER,
+ we move XEC.i right-to-left,
+ decrementing (--)
+\end_layout
+
+\begin_layout Itemize
+Each Atom has some internal structure.
+ Specifically A[0] is its type,
+ and A[1] is usually its value.
+\end_layout
+
+\begin_layout Itemize
+We evaluate (parse) the Atom using JEWEL (more of this later).
+\end_layout
+
+\begin_layout Standard
+Let’s take 
+\begin_inset CommandInset href
+LatexCommand href
+name "our old friend"
+target "https://drjo.substack.com/i/213376055/ideas-from-j"
+literal "false"
+
+\end_inset
+
+⌘ from Zyzyxia,
+ factorial:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+MUL _all_ UP _over_ SEQ 10
+\end_layout
+
+\begin_layout Standard
+There are six Atoms.
+ Our while loop starts at the right and whirls around.
+ First,
+ the integer 10 is encountered,
+ and simply put on the stack.
+ The SEQ command is then executed taking the 10 off the stack,
+ and replacing it with ( 0 1 2 \SpecialChar ldots
+ 9 ).
+ Now the adverb _over_ ‘knows’ to look for a command on its left—
+here,
+ UP—
+which is applied to produced ( 1 2 3 \SpecialChar ldots
+ 10).
+ Finally,
+ _all_ similarly MULtiplies all of the values,
+ pushing the result 3,628,800 to the stack.
+ We’re done.
+\end_layout
+
+\begin_layout Standard
+There are two things we need to clarify.
+ The first is what JEWEL[A[0]](A) does;
+ the second is why we have the option to return(true).
+ Let’s deal with that second wrinkle first;
+ later we’ll devote an entire section to JEWEL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/single_thread.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+‘
+\begin_inset CommandInset href
+LatexCommand href
+name "Needle and red thread"
+target "https://commons.wikimedia.org/wiki/File:Needle_and_red_thread.jpg"
+literal "false"
+
+\end_inset
+
+’
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A picture of a spool of red thread,
+ with a single thread extending to the right.
+ There’s also a silvery needle.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+A single thread
+\end_layout
+
+\begin_layout Standard
+Modern JavaScript is effectively multi-threaded.
+ You can deploy ‘web-workers’ to do things asynchronously in the background.
+ When I started writing Zyzyxia two decades ago,
+ things were more crude.
+ If your code took too long,
+ a confusing popup would invite you to kill everything forever.
+\end_layout
+
+\begin_layout Standard
+So I built in the ability to fall back (return true),
+ wait for stuff to happen,
+ and then seamlessly resume.
+ This has become a boon.
+ It allows for great flexibility,
+ quite apart from getting rid of those irritating warnings.
+ Caution,
+ there are rainbow details at this point I’m not going to dig into now.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Technically,
+ asynchrony in JavaScript is plagued/haunted by the fact that async propagates upwards—
+you can only await a result if your function is asynchronous.
+ Bob Nystrom has an awesome rant about this if you want to plunge down multiple rabbit holes,
+ asynchronously.
+ If you refactor a function to make it asynchronous,
+ this means you have to accommodate this in the entire tree that uses that function,
+ everywhere.
+ In JavaScript,
+ Promises appear to help,
+ but come with many liabilities,
+ including the inability to cancel them.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+JEWEL?
+\end_layout
+
+\begin_layout Standard
+Let’s explore how we can possibly create an entire language with a single invocation.
+ From above,
+ you’ll recall this:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+JEWEL[ A[0] ](A)
+\end_layout
+
+\begin_layout Standard
+Terse and almost sneaky,
+ it says:
+\end_layout
+
+\begin_layout Enumerate
+Look up a function that matches the type of the atom A,
+ stored in A[0],
+ and
+\end_layout
+
+\begin_layout Enumerate
+Apply this function to A.
+\end_layout
+
+\begin_layout Standard
+We can build our entire language with about twenty different types of Atom (Think of them as 
+\begin_inset CommandInset href
+LatexCommand href
+name "codons"
+target "https://drjo.substack.com/i/209344209/so-how-low-can-we-go"
+literal "false"
+
+\end_inset
+
+⌘ in an RNA sequence).
+ Even more sneaky is how we look up and apply the relevant function.
+ JEWEL is built from an array of Atom types and names.
+ It’s just a list of pairs:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/part_12.js' startComment=`==' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+function MakeGEM ()
+\end_layout
+
+\begin_layout Plain Layout
+
+{ var GEMlist = 
+\end_layout
+
+\begin_layout Plain Layout
+
+  [ [Ary,
+      GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Bool,
+     GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Unicode,
+  GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Empty,
+    GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Flt,
+      GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [What,
+     GEM_constant],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Bigfix,
+   GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Small,
+    GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Integer,
+  GEM_constant],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Text,
+     GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Nul,
+      GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Complex,
+  GEM_constant],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Oops,
+     GEM_oops],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Phrase,
+   GEM_skip],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Trap,
+     GEM_skip],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Local,
+    GEM_local],
+ // aka Parochial 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Noun,
+     GEM_global],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Verb,
+     GEM_verb],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Command,
+  GEM_command],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Decider,
+  GEM_decider],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Return,
+   GEM_return],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Try,
+      GEM_try],
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Case,
+     GEM_case],
+\end_layout
+
+\begin_layout Plain Layout
+
+    [Repeat,
+   GEM_rpt]        // .
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  ];
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  MapMaker(JEWEL,
+ GEMlist);
+ // assign.
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All 
+\family typewriter
+MapMaker()
+\family default
+ does is to pair up the name on the left and the function on the right.
+ It turns out we need just a dozen functions!
+\end_layout
+
+\begin_layout Standard
+So,
+ for example,
+ when 
+\family typewriter
+JEWEL
+\family default
+ meets a 
+\family typewriter
+Small
+\family default
+ integer,
+ 
+\family typewriter
+GEM_constant(A)
+\family default
+ simply pushes the value to the stack.
+ Done!
+ When a COMMAND is encountered,
+ then it’s handled by 
+\family typewriter
+GEM_command
+\begin_inset space ~
+\end_inset
+
+(A)
+\family default
+—
+and so on!
+\end_layout
+
+\begin_layout Section*
+Fiddly details
+\end_layout
+
+\begin_layout Standard
+Our earlier exploration of that central loop was slightly simplified.
+ Owing to other shitty design features of JavaScript,
+ we insert a try { \SpecialChar ldots
+ } catch (e) { \SpecialChar ldots
+ } construct to handle errors.
+ This also partially accommodates the error-handling philosophy we 
+\begin_inset CommandInset href
+LatexCommand href
+name "stole"
+target "https://drjo.substack.com/p/all-i-wanted-was-a-banana"
+literal "false"
+
+\end_inset
+
+⌘ from Erlang.
+ Here’s the more thorough version:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+while(XEC.i >= 0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+  { var A = XEC.R[XEC.i];
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    XEC.i --;
+\end_layout
+
+\begin_layout Plain Layout
+
+  try
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if( JEWEL[A[0]](A) ) 
+\end_layout
+
+\begin_layout Plain Layout
+
+      { return(true);
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+      };
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    } catch (e) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { GEM_dodgy(e);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+  };
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+We’re done
+\end_layout
+
+\begin_layout Standard
+And yes,
+ as with rainbows there’s always a bit more.
+ But let’s not be over-zealous here.
+ Sometimes you need a break and a pause,
+ even from observing rainbows.
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+➵
+\family default
+ In next week’s post,
+ we’ll look at flow of control—
+decisions,
+ pauses and breaks.
+ In a multitude of languages.
+ Mine too.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+My 2c,
+ Dr Jo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ This symbol is used to indicate posts where I’ve discussed the flagged topic in more detail.
+\end_layout
+
+\begin_layout Quotation
+Copyright © 2026 JM van Schalkwyk
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+This work is licensed under the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia Public Licence, version 1"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+.
+ You may convey it only together with its 
+\begin_inset CommandInset href
+LatexCommand href
+name "Corresponding Literate Source Document"
+target "https://github.com/jvanschalkwyk/zyzyxia/blob/main/Programming_part_12.lyx"
+literal "false"
+
+\end_inset
+
+,
+ as that Licence requires.
+ All rights are reserved in respect of AI Training Use,
+ including for the purposes of any text-and-data-mining exception or opt-out provision under applicable law.
+ Submitting this work as input to a Generative AI System is prohibited.
+\end_layout
+
+\end_body
+\end_document

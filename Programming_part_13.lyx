@@ -1,0 +1,2061 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% SPDX-FileCopyrightText: 2026 JM van Schalkwyk
+% SPDX-License-Identifier: LicenseRef-Zyzyxia-1
+
+% for: LaTeX DogWagger version=`4.0.1' fileTarget=`dummy.txt' startComment=`#' noWarn=`yes'
+%========================================================================
+% LaTeX Dogwagger takes LaTeX files and pulls out verbatim comments,    %
+% concatenating the text enclosed in these verbatim comments            %
+% into executable code. Copyright (C) J van Schalkwyk, 2005.            %
+% LaTeX Dogwagger is made available under the GNU Public Licence (GPL). %
+% To NOT include a particular verbatim section, a comment line          %
+%   containing the text: DogWagger dogsAllowed=`no' must precede *ANY*  %
+%   line containing the text \begin{verbatim} !                         %
+%===============================================================
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "en"
+\defaultfontfeatures{Mapping=tex-text}
+%\usepackage{hyperref} 
+
+% Colour hyperlinks: 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={blue!80!black},
+    urlcolor={blue!60!black},
+    citecolor={green!50!black}
+}
+
+% Suppress Figure 1 etc. 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compact]{titlesec}
+% \hyphenation{}
+\titleformat{\section}{\Large\sffamily}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\large\sffamily}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0.5em}{}
+%%%%%%%%%%%%
+\titlespacing{\section}{0em}{2em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0em}
+%%%%%%%%%%%%
+
+
+% Modify format of Table Of Contents:
+\usepackage[]{tocloft}
+% \usepackage{ulem}  % NO. changes \emph to underlining!
+\renewcommand{\cfttoctitlefont}{\hfill\huge\sf}  % Big "Contents" title
+\renewcommand{\cftaftertoctitle}{\hfill} % and hfill * 2 centres title. 
+\renewcommand{\cftsecfont}{\sf\large}        % section titles in SF, Large.
+\renewcommand{\cftsubsecfont}{\sf}             % subsections are SF
+\renewcommand{\cftsubsecpagefont}{\sf}    % page numbers in sans serif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% the following fails to fix the irritating utf16 messages.
+% \hypersetup{unicode=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "NotoSerifRegular" "DejaVu Serif"
+\font_sans "NotoSansLight" "DejaVu Sans"
+\font_typewriter "beramono" "DejaVu Sans Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 90
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 9
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #1c71d8
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Almost in Circles
+\end_layout
+
+\begin_layout Subtitle
+Programming Part XIII:
+ Why code and pasta don’t mix
+\end_layout
+
+\begin_layout Author
+
+\family sans
+\size small
+Dr Jo
+\end_layout
+
+\begin_layout Date
+
+\family sans
+\size footnotesize
+2026-11-08
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Lumekunst4-cropped.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Lumenkunst4 (cropped),
+ from 
+\begin_inset CommandInset href
+LatexCommand href
+name "Wikimedia Commons"
+target "https://commons.wikimedia.org/wiki/File:Lumekunst4.jpg"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A photo of three people standing at the centre of an artwork made by a single,
+ multi-curved line sculpted in snow,
+ seen from above.
+ Fir trees just out on the sides.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+There’s a cool web of language winds us in,
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+Retreat from too much joy or too much fear:
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+We grow sea-green at last and coldly die
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+In brininess and volubility.
+
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+—
+ 
+\series bold
+Robert Graves
+\series default
+,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "The Cool Web"
+target "https://allpoetry.com/The-Cool-Web"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It has been claimed that “Eskimos” have no word for snow;
+ instead they distinguish between dozens or even hundreds of varieties.
+\end_layout
+
+\begin_layout Standard
+This is,
+ of course,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "bullshit"
+target "https://languagelog.ldc.upenn.edu/nll/?p=4419"
+literal "false"
+
+\end_inset
+
+,
+ a cliché snatched out of the chilly air to promote the idea that language itself shapes and constrains how we perceive the world.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Not helped by the fact that Inuit is polysynthetic—
+so you can join up syllables to make as many words as you want.
+ Many languages (including English) have many words for snow.
+\end_layout
+
+\end_inset
+
+ A strong version is the Sapir-Whorf hypothesis,
+ otherwise known as “linguistic relativism”.
+ It’s just Orwell’s Newspeak,
+ where shaping the language appropriately prevents dissidents from even articulating their desires and dissatisfaction.
+\end_layout
+
+\begin_layout Standard
+We at the Ministry of Truth naturally disparage this sort of idea :)
+\end_layout
+
+\begin_layout Standard
+Of course,
+ people will find a way of expressing themselves,
+ and the glorious thing about language is that it allows you to combine bits and pieces into new,
+ powerful constructs.
+ This doesn’t necessarily imply that all languages are equal in this regard,
+ particularly when it comes to computer languages.
+\end_layout
+
+\begin_layout Standard
+Let’s now explore flow of control in my esoteric language 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia"
+target "https://drjo.substack.com/p/the-naming"
+literal "false"
+
+\end_inset
+
+—
+but through the lens of past languages.
+ We’ll spelunk the deeper caverns of ancient computer science.
+ I’ll try to show that gaps arise from the underlying substrate,
+ and permeate the language,
+ which then shapes our thinking.
+\end_layout
+
+\begin_layout Standard
+I guess we can still dream about Sapir-Whorf,
+ but wearing wings is pointless if you can’t fly.
+ If we’re going to embrace a cliché,
+ perhaps this is a better one:
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+A fish has no word for water.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/vacuum_tubes_IBM_701.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset CommandInset href
+LatexCommand href
+name "Vacuum tubes from an IBM 701"
+target "https://www.columbia.edu/cu/computinghistory/701.html"
+literal "false"
+
+\end_inset
+
+ (with a smaller IC from System/370)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Old colour picture in shades of beige.
+ A man in a suit with a very boring tie,
+ holding a rack of vacuum tubes and associated circuitry.
+ In front of him on the right is a more recent and more compact 1970s device.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+The substrate
+\end_layout
+
+\begin_layout Standard
+A petaflop is 
+\begin_inset Formula $10^{15}$
+\end_inset
+
+ floating point operations per second.
+ Today,
+ we have single AI chips that can do tens of petaflops;
+ this and vast troves of memory are our current ‘water.’ It was not always so.
+\end_layout
+
+\begin_layout Standard
+Back before 1960,
+ most computer logic was done using increasingly baroque vacuum tubes and memory was strange and constrained.
+ IBM’s first commercial scientific computer was the IBM 701 in 1952.
+\end_layout
+
+\begin_layout Standard
+The central processing unit was indeed made of vacuum tube logic,
+ with memory provided by seventy-two 
+\begin_inset CommandInset href
+LatexCommand href
+name "Williams tubes"
+target "https://en.wikipedia.org/wiki/Williams_tube"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The way they implement RAM is bizarrely awesome,
+ recording each bit as a transient dot of charge on a cathode ray screen.
+\end_layout
+
+\end_inset
+
+ each capable of holding just 1024 bits of data.
+ That’s a total memory (RAM) of 2k words,
+ each word storing 36 bits.
+ Monthly rental in today’s cash was about $150k or a bit more,
+ running for 40 hours per week.
+\end_layout
+
+\begin_layout Standard
+It’s now tempting to explore the inner workings—
+how each of those 36 bit words could store two 18-bit instructions,
+ how numbers were formatted,
+ the fact that this expensive machine had just two registers for actually doing stuff,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The 38 bit accumulator and the 36-bit multiplier/quotient register.
+\end_layout
+
+\end_inset
+
+ accessory storage,
+ and so on—
+but let’s step back.
+\end_layout
+
+\begin_layout Standard
+You can see that if a small amount of processing capacity is so precious,
+ then certain human behaviours will naturally emerge.
+ I’ve 
+\begin_inset CommandInset href
+LatexCommand href
+name "previously noted"
+target "https://drjo.substack.com/i/213376055/the-curious-incident-of-the-doc-in-the-night"
+literal "false"
+
+\end_inset
+
+⌘ how valuable CPU time was on an IBM/360 when I first gained access decades later in 1978.
+ Even then,
+ on a transistor machine with 16 Megabytes of core memory,
+ most jobs were batched.
+ You prepared your program,
+ you ran your program through,
+ you examined the output for where you’d stuffed up;
+ rinse and repeat.
+\end_layout
+
+\begin_layout Standard
+There was no reason to pause.
+ But once you’re interacting with a powerful computer,
+ as everyone with a smartphone does every day now,
+ there’s every reason for code to defer,
+ and wait,
+ and resume.
+\end_layout
+
+\begin_layout Section*
+Angel wings:
+ PEND
+\end_layout
+
+\begin_layout Quotation
+A tuxedo and a shiny three thirty-five.
+\end_layout
+
+\begin_layout Quotation
+You can see it in his face,
+ the blue[s] never lie.
+\end_layout
+
+\begin_layout Quotation
+Tonight everybody’s getting their angel wings.
+\end_layout
+
+\begin_layout Quotation
+And don’t you know we’re riding with the king?—
+John Hiatt,
+ “
+\begin_inset CommandInset href
+LatexCommand href
+name "Riding with the king"
+target "https://www.youtube.com/watch?v=L7Ls8ceHxhc"
+literal "false"
+
+\end_inset
+
+”
+\end_layout
+
+\begin_layout Standard
+So Lo!
+ We now can wait.
+ Rudimentary attempts at this arose naturally when multi-tasking systems like 
+\begin_inset CommandInset href
+LatexCommand href
+name "Multics"
+target "https://en.wikipedia.org/wiki/Multics"
+literal "false"
+
+\end_inset
+
+ were made in the late 1960s—
+and from imitation and wordplay Unix was born,
+ with sleep an option;
+ cron 
+\begin_inset CommandInset href
+LatexCommand href
+name "emerged"
+target "https://www.geeksforgeeks.org/linux-unix/cron-command-in-linux-with-examples/"
+literal "false"
+
+\end_inset
+
+ in 1979.
+\end_layout
+
+\begin_layout Standard
+In the late 1960s,
+ Simula introduced delays and even the idea of a ‘callback’—
+we do something,
+ and later after the task is done,
+ the callback fires.
+ This ties in very nicely to another idea that only seems obvious in retrospect:
+ functions as first-class citizens.
+\end_layout
+
+\begin_layout Standard
+Some languages are built around the idea that structure trumps everything else.
+ There’s a beautiful rant from 2006 by Steve Yegge called “
+\begin_inset CommandInset href
+LatexCommand href
+name "Execution in the Kingdom of the Nouns"
+target "https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html"
+literal "false"
+
+\end_inset
+
+”,
+ where he explores the story of Evil King Java,
+ who constrained all verbs and made their status second-class.
+\end_layout
+
+\begin_layout Standard
+In contrast,
+ in many Lisp-like languages,
+ and Lisp itself,
+ verbs are emancipated.
+ They get to move around and smell the roses,
+ and can be called on as needed,
+ without being chaperoned in an object-oriented,
+ noun-centric world.
+ This makes it trivial to do things like pass a verb (function name) to another verb,
+ which then schedules it to be run at some point.
+ I’ve run with this in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ where you can say this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger newTarget=`code/part_13_trivial.whole' startComment=`==' noWarn=`yes' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+PEND myLittleDelay <my_delayed_verb>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After the specified number of microseconds,
+ the verb will just run.
+ You can also say things like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+APPLY <my_other_verb>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ and this will simply invoke the verb in the current context.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This approach is a trade-off between capability and danger.
+ Clearly,
+ if you have the ability to say something like EXECUTE <arbitrary code here>,
+ then there’s more than a sporting chance that someone will use this to execute <dangerous code here>,
+ and safeguards become a bit fraught.
+ Early on,
+ Lisp came up with eval,
+ which is similar in spirit and its level of tameness,
+ because eval requires a list and can’t work on an arbitrary text.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Flow of control
+\end_layout
+
+\begin_layout Standard
+When push comes to shove,
+ microprocessors are actually simple.
+ Even those with billions of transistors.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+And now,
+ we have wafer-scale processors with 4 trillion transistors.
+\end_layout
+
+\end_inset
+
+ The simple thing is this:
+ the processor 
+\begin_inset CommandInset href
+LatexCommand href
+name "fetches and then executes an instruction"
+target "https://en.wikipedia.org/wiki/Von_Neumann_architecture"
+literal "false"
+
+\end_inset
+
+.
+ We’ve seen something similar in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "dissecting"
+target "https://drjo.substack.com/i/222233193/seven-lines"
+literal "false"
+
+\end_inset
+
+⌘ factorial:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+MUL _all_ UP _over_ SEQ 10
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We 
+\begin_inset CommandInset href
+LatexCommand href
+name "POWER"
+target "https://drjo.substack.com/i/213376055/power"
+literal "false"
+
+\end_inset
+
+⌘ along from right-to-left:
+ put the value 10 on the stack,
+ and then in sequence fetch and execute the instructions SEQ,
+ UP (with its modifier adverb _over_) and MUL with another _all_ adverb.
+\end_layout
+
+\begin_layout Standard
+But of course we need more than just linear execution.
+ Three more things,
+ it seems.
+ To:
+\end_layout
+
+\begin_layout Enumerate
+Make decisions;
+\end_layout
+
+\begin_layout Enumerate
+Move in circles,
+ where we repeatedly do the same,
+ or very similar things;
+\end_layout
+
+\begin_layout Enumerate
+Branch off,
+ do some stuff,
+ and then come back.
+\end_layout
+
+\begin_layout Standard
+To cut it short,
+ the corresponding commands in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ are respectively (1) CASE;
+ (2) REPEAT;
+ and (3) Well,
+ we’ll do ‘chunking’ in my next post.
+ But let’s spelunk a bit.
+\end_layout
+
+\begin_layout Section*
+For/next considered harmful
+\end_layout
+
+\begin_layout Standard
+I simply must make another ‘fish in water’ comment here.
+ It is this:
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Hopping around in code is the antithesis of good programming.
+\end_layout
+
+\begin_layout Standard
+We’ve already seen two different options:
+\end_layout
+
+\begin_layout Itemize
+Just 
+\begin_inset CommandInset href
+LatexCommand href
+name "recur"
+target "https://drjo.substack.com/i/213376055/a-very-cool-thing"
+literal "false"
+
+\end_inset
+
+.⌘ The function/verb calls itself.
+\end_layout
+
+\begin_layout Itemize
+Do it all-at-once,
+ as we did above with _all_ and _over_.
+\end_layout
+
+\begin_layout Standard
+Hopping and skipping and jumping and looping are often just admissions of failure.
+ So where do they even come from?
+ It’s in the substrate!
+ And the substrate can be deadly.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Unintended_Acceleration_2004Camry_Barr.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset CommandInset href
+LatexCommand href
+name "Unintended acceleration"
+target "https://safetyresearch.net/toyota-unintended-acceleration-and-the-big-bowl-of-spaghetti-code/"
+literal "false"
+
+\end_inset
+
+ of 2005 Toyota Camry,
+ investigated by Michael Barr
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A graphic by Michael Barr,
+ showing how code failure results in 30 seconds of unintended acceleration,
+ with a peak speed of over 90 mph.
+ Control is only regained if the driver paradoxically takes their foot off the brake completely!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+We’ll start with spaghetti
+\end_layout
+
+\begin_layout Standard
+In September 2007,
+ Jean Bookout and her friend Barbara Schwarz were exiting Interstate Highway 69 in Oklahoma,
+ when she became unable to control the throttle.
+ The car sped away despite her braking hard;
+ she pulled on the parking brake.
+ The 2005 Toyota Camry sped on,
+ crashing into an embankment.
+ Barbara died;
+ Jean spent months in hospital.
+ A huge underlying problem was the mess of ‘spaghetti code’ in the vehicle’s critical control system.
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+Q.
+ Let’s go to the next slide please.
+ Tell me generally what spaghetti code means in your industry?
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+A.
+ Well,
+ in a nutshell it means that the code is very difficult to read and maintain.
+ You heard Mr.
+ Ishii say that NASA had trouble reading Toyota’s source code.
+ That wasn’t to do with them not following NISRA,
+ it’s because it was badly written and badly structured source code.
+ And that’s spaghetti.
+
+\emph default
+ —
+ Trial transcript,
+ 14 October 2013,
+ Case No CJ-2008-7869.
+\end_layout
+
+\begin_layout Standard
+If we go back to the original languages that were kicking around in the early 1960s,
+ they had an obvious something we pretty much never see today.
+ Every language came with some sort of GOTO statement.
+ It might have been GO TO (in Fortran AND Cobol);
+ in ALGOL 60 it actually was GOTO (with the alternative GO TO also 
+\begin_inset CommandInset href
+LatexCommand href
+name "sometimes acceptable"
+target "https://retrocomputing.stackexchange.com/questions/19779/what-is-the-story-behind-goto-vs-go-to-in-algol-60"
+literal "false"
+
+\end_inset
+
+);
+ even Lisp had a GO.
+\end_layout
+
+\begin_layout Standard
+These are also all “fish/water” ideas—
+they translate directly back to the underlying processor behaviour,
+ where it’s natural for the executing code to branch off to another place in memory.
+ The problem with GOTO is spaghetti.
+ You jump somewhere—
+and then you test and jump somewhere else,
+ and you end up going back and forth like a bumblebee on methamphetamine.
+ Anyone reading your code starts with nystagmus and ends up with a headache.
+\end_layout
+
+\begin_layout Standard
+Everyone knew this,
+ but in 1968 grumpy old Edsger Dijkstra burnt it into every brain with “
+\emph on
+Go To Statement Considered Harmful
+\emph default
+”.
+ It’s 
+\begin_inset CommandInset href
+LatexCommand href
+name "quite a rant"
+target "https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf"
+literal "false"
+
+\end_inset
+
+,
+ but also entirely sensible.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+A fascinating aside is that originally,
+ the piece was called “A case against the goto statement”.
+ Niklaus Wirth came up with the final,
+ fabulous title!
+\end_layout
+
+\end_inset
+
+ In passing,
+ he mentions the recent invention of the ‘CASE’ statement by two other pioneers,
+ Tony Hoare and Niklaus Wirth,
+ both of whom were working on ALGOL variants.
+ But many people had other ideas.
+\end_layout
+
+\begin_layout Subsection*
+Out of the frying pan
+\end_layout
+
+\begin_layout Standard
+So the logical way—
+à la Dijkstra—
+seems to be structured blocks of programming.
+ Nested code.
+ Stuff like this \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no'
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+if ( condition )
+\end_layout
+
+\begin_layout Plain Layout
+
+   {  … // do something here
+\end_layout
+
+\begin_layout Plain Layout
+
+   } else 
+\end_layout
+
+\begin_layout Plain Layout
+
+   {
+\end_layout
+
+\begin_layout Plain Layout
+
+   if ( another condition )
+\end_layout
+
+\begin_layout Plain Layout
+
+      { … // do yet another thing 
+\end_layout
+
+\begin_layout Plain Layout
+
+      } else 
+\end_layout
+
+\begin_layout Plain Layout
+
+      { … // potentially more nesting here  … 
+\end_layout
+
+\begin_layout Plain Layout
+
+      };
+ // end inner else 
+\end_layout
+
+\begin_layout Plain Layout
+
+   };
+  // end outer else 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Leaping to our AI-driven future,
+ we encounter Claude Code being used to rewrite itself.
+ We’ve 
+\begin_inset CommandInset href
+LatexCommand href
+name "seen what happened"
+target "https://drjo.substack.com/i/214247059/the-enemy-internalised"
+literal "false"
+
+\end_inset
+
+⌘—
+a single routine that spans 3167 lines,
+ and 
+\begin_inset CommandInset href
+LatexCommand href
+name "12 levels"
+target "https://www.linkedin.com/pulse/8-surprising-takeaways-from-anthropic-agent-leak-damara-carlentine-51uwc/"
+literal "false"
+
+\end_inset
+
+ of nesting.
+\end_layout
+
+\begin_layout Standard
+And nesting in turn entails extra complexity:
+ rules about scoping and local variables.
+ We know that in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ this just won’t happen,
+ because we can’t nest,
+ and variables are 
+\begin_inset CommandInset href
+LatexCommand href
+name "WORM"
+target "https://drjo.substack.com/i/219692586/1-the-worst-decision"
+literal "false"
+
+\end_inset
+
+⌘—
+write once,
+ read many.
+ Make a verb instead.
+ But we still need to be able to make decisions,
+ don’t we?
+\end_layout
+
+\begin_layout Section*
+CASE cuts the crap
+\end_layout
+
+\begin_layout Standard
+Many languages (apart from Python) have some sort of switch/case construct.
+ There is a need,
+ and the language responds.
+ Even Perl belatedly came up with one.
+\end_layout
+
+\begin_layout Standard
+But the substrate intruded,
+ again.
+ If it wasn’t spaghetti,
+ it was tortellini or strozzapreti.
+ Fortran built a three-way jump
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Not entirely a bad idea,
+ by the way.
+\end_layout
+
+\end_inset
+
+—
+because the hardware made this ‘natural’.
+ The 
+\begin_inset CommandInset href
+LatexCommand href
+name "switch statement"
+target "https://eev.ee/blog/2016/09/18/the-curious-case-of-the-switch-statement/"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+There are some other truly weird examples in this link.
+ We won’t talk about modern Raku.
+\end_layout
+
+\end_inset
+
+ of ALGOL looked like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no'
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+switch I := D₁,
+ D₂,
+ ...,
+ Dₙ;
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+followed by go to I[2] where the index (here 2) could even be computed at run time.
+ Tony Hoare has a 
+\begin_inset CommandInset href
+LatexCommand href
+name "glorious, lengthy description"
+target "https://www.computerconservationsociety.org/resurrection/res48.htm"
+literal "false"
+
+\end_inset
+
+ of how problematic it was to implement ALGOL 60 on an Elliot 803,
+ precisely because it lacked an index register.
+\end_layout
+
+\begin_layout Standard
+In contrast,
+ 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ is simple.
+ Let’s try this 
+\begin_inset CommandInset href
+LatexCommand href
+name "Victorian anachronism"
+target "https://en.wikipedia.org/wiki/Something_old"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+    { <Bugger,
+ a silver sixpence in her shoe> | otherwise } 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { <fidelity>      | EQ <blue>     } 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { <good luck>     | EQ <borrowed> } 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { <optimism>      | EQ <new>      } 
+\end_layout
+
+\begin_layout Plain Layout
+
+    { <baby security> | EQ <old>      } CASE <Meh>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+POWER-reading as usual from right-to-left,
+ you’ll get back one of five options,
+ each describing the meaning of the text to the right of CASE.
+ If you know Lisp,
+ you may see the resemblance to a 
+\begin_inset CommandInset href
+LatexCommand href
+name "COND expression"
+target "https://www.geeksforgeeks.org/lisp/cond-construct-in-lisp/"
+literal "false"
+
+\end_inset
+
+,
+ which contains a list of sequentially evaluated conditions and responses.
+\end_layout
+
+\begin_layout Standard
+No nesting,
+ it’s obvious what you’re testing,
+ and an optional “otherwise” clause (taken if we do submit e.g.
+ <Meh>) is not only encouraged but very visible to the reader.
+\end_layout
+
+\begin_layout Standard
+That vertical | pipe is called a 
+\emph on
+decider
+\emph default
+,
+ and must be given a boolean value (Yes | No),
+ which EQ does as a result of its testing for an exact match.
+ Want an ‘if’ statement?
+ Use a single 
+\family typewriter
+CASE
+\family default
+.
+ That’s really it for decisions.
+ So all we have left is \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Section*
+Finally,
+ looping
+\end_layout
+
+\begin_layout Standard
+Despite my earlier rude comments,
+ sometimes it can be convenient to loop.
+ And when we look at the underlying machines,
+ looping is relatively easy—
+so why not use it?
+\end_layout
+
+\begin_layout Standard
+There are some really freaky little frills in early computers.
+ Again,
+ hardware made some things hard.
+ EDSAC from 1949 had no ‘index register’,
+ so when it needed to walk through an array,
+ it modified its own internal instruction!
+ The 701 did this too.
+ Later IBM machines had “count-and-branch” and “branch on count” instructions,
+ and this directly shaped Fortran’s fabulous DO loop:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no'
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+DO 10 I = 1,N
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simple,
+ isn’t it?
+ Work up from 1 to N in steps of 1.
+ Well,
+ they couldn’t help themselves,
+ so there’s an optional third parameter,
+ the ‘stride’ parameter.
+ As this can be negative,
+ there need to be a whole lot of ancillary rules.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The start value must be larger than the limit if steps are negative,
+ and modifying variables inside a loop is verboten;
+ older versions even allowed the dodgy peculiarity of REAL values in loops.
+\end_layout
+
+\end_inset
+
+ Each language has its strangeness.
+ ALGOL 60 had a rich set of options,
+ all embodied in a FOR loop.
+ Something like this was entirely legal:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no'
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+for i := 1,
+ 7,
+ 10 step 5 until 50,
+ 2 × foo while foo < 100 do 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ with re-evaluation of the step size and limit at every loop,
+ the ability to change the loop counter in the body of the code;
+ and weird exit behaviour.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The exit value of the control variable was undefined on exit,
+ unless the loop had been exited using a goto :(
+\end_layout
+
+\end_inset
+
+ Later languages came up with slightly more tractable for,
+ while and until-flavoured looping.
+ But still \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Section*
+Complexity is easy
+\end_layout
+
+\begin_layout Standard
+The real difficulty in programming is simplicity.
+ We are tempted to add a feature,
+ and often the substrate obliges.
+ What is truly difficult is to hold back,
+ and constrain ourselves to an elegant minimum.
+ We all forget that complexity is the enemy.
+ Here’s looping in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+{ do_something_here } REPEAT loopCount
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simple,
+ right?
+ Right-to-left,
+ of course.
+ But of course I am as prone to complexity as—
+if not the next person—
+the next person but one.
+ We note:
+\end_layout
+
+\begin_layout Standard
+The loopCount is immutable (
+\begin_inset CommandInset href
+LatexCommand href
+name "WORM"
+target "https://drjo.substack.com/i/219692586/1-the-worst-decision"
+literal "false"
+
+\end_inset
+
+ again).
+ If it’s 5,
+ it’s 5.
+ So how do we access the counter?
+\end_layout
+
+\begin_layout Standard
+CASE has curly braces like this { \SpecialChar ldots
+ | \SpecialChar ldots
+ } Isn’t it just too tempting to allow the same thing in a REPEAT loop—
+which we can then terminate early and easily?
+ 
+\end_layout
+
+\begin_layout Standard
+So I cater for these.
+ You can introduce a decider;
+ and the current count is found in the “fake parochial” rE.
+ There are subtleties.
+ Check this out:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+{ rE } REPEAT 10
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ produces:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dogsAllowed=`no'
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That’s because we 
+\begin_inset CommandInset href
+LatexCommand href
+name "count down to zero"
+target "https://drjo.substack.com/i/210541344/counter-intuitive"
+literal "false"
+
+\end_inset
+
+,⌘ so REPEAT effectively decreases the counter when it first bumps into the }.
+\end_layout
+
+\begin_layout Standard
+The term “fake parochial” is also a bit of a mouthful,
+ so we call rE a ‘trump’.
+ It trumps the usual function of a parochial,
+ you see—
+and is both fake and parochial.
+ A perfect fit for an ugly convenience.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+With absolutely no international political connotations,
+ of course.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There’s one more catch.
+ It doesn’t make sense for rE to be valid outside the REPEAT loop,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+It’s not only silly but off-target and dangerous,
+ and introduces the sort of “What is the value of I outside the Fortran | Algol loop?” confusion we just don’t need.
+ 
+\end_layout
+
+\end_inset
+
+ and it’s clear that with a decider we can exit prematurely.
+ We therefore have a specific trump just for the exit value:
+ xE.
+\end_layout
+
+\begin_layout Section*
+Abstraction is too tempting
+\end_layout
+
+\begin_layout Standard
+I hope the above mix of ancient and modern has still been digestible.
+ But if it hasn’t,
+ consider why this may be.
+ I’d suggest that in contrast to:
+\end_layout
+
+\begin_layout Quote
+
+\series bold
+language ⇒ how we think
+\series default
+ (Sapir-Whorf)
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ this may be more plausible:
+\end_layout
+
+\begin_layout Quote
+
+\series bold
+hardware substrate ⇒ how we program ⇄ how we think.
+\end_layout
+
+\begin_layout Standard
+I think we tend to forget the influence of the water we’re swimming in.
+ Easy abstraction has a cost.
+ But what do you think?
+\end_layout
+
+\begin_layout Section*
+Chunking next
+\end_layout
+
+\begin_layout Standard
+In 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ it’s already trivially easy to ‘chunk’ our code.
+ Just make a verb!
+ But can we do this on a larger scale?
+ We know we can,
+ because we've 
+\begin_inset CommandInset href
+LatexCommand href
+name "already met"
+target "https://drjo.substack.com/i/221890680/modules"
+literal "false"
+
+\end_inset
+
+⌘ the normal MODULE.
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+➵
+\family default
+ In next week’s post,
+ we’ll find out how to make our own modules,
+ into which we’ll put large chunks of code—
+scripts.
+ We’ll also find out how to RUN such scripts.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+My 2c,
+ Dr Jo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ This symbol is used to indicate posts where I’ve discussed the flagged topic in more detail.
+\end_layout
+
+\begin_layout Quotation
+Copyright © 2026 JM van Schalkwyk
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+This work is licensed under the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia Public Licence, version 1"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+.
+ You may convey it only together with its 
+\begin_inset CommandInset href
+LatexCommand href
+name "Corresponding Literate Source Document"
+target "https://github.com/jvanschalkwyk/zyzyxia/blob/main/Programming_part_12.lyx"
+literal "false"
+
+\end_inset
+
+,
+ as that Licence requires.
+ All rights are reserved in respect of AI Training Use,
+ including for the purposes of any text-and-data-mining exception or opt-out provision under applicable law.
+ Submitting this work as input to a Generative AI System is prohibited.
+\end_layout
+
+\end_body
+\end_document

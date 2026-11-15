@@ -1,0 +1,1756 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% SPDX-FileCopyrightText: 2026 JM van Schalkwyk
+% SPDX-License-Identifier: LicenseRef-Zyzyxia-1
+
+% for: LaTeX DogWagger version=`4.0.1' fileTarget=`code/part_14_trivial.whole' startComment=`==' noWarn=`yes'
+%========================================================================
+% LaTeX Dogwagger takes LaTeX files and pulls out verbatim comments,    %
+% concatenating the text enclosed in these verbatim comments            %
+% into executable code. Copyright (C) J van Schalkwyk, 2005.            %
+% LaTeX Dogwagger is made available under the GNU Public Licence (GPL). %
+% To NOT include a particular verbatim section, a comment line          %
+%   containing the text: DogWagger dogsAllowed=`no' must precede *ANY*  %
+%   line containing the text \begin{verbatim} !                         %
+%===============================================================
+%
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "en"
+\defaultfontfeatures{Mapping=tex-text}
+%\usepackage{hyperref} 
+
+% Colour hyperlinks: 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={blue!80!black},
+    urlcolor={blue!60!black},
+    citecolor={green!50!black}
+}
+
+% Suppress Figure 1 etc. 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[compact]{titlesec}
+% \hyphenation{}
+\titleformat{\section}{\Large\sffamily}{\thesection}{0.4em}{}
+\titleformat{\subsection}{\large\sffamily}{\thesubsection}{0.3em}{}
+\titleformat{\subsubsection}{\normalsize\sffamily}{\thesubsubsection}{0.5em}{}
+%%%%%%%%%%%%
+\titlespacing{\section}{0em}{2em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{0.5em}{0em}
+%%%%%%%%%%%%
+
+
+% Modify format of Table Of Contents:
+\usepackage[]{tocloft}
+% \usepackage{ulem}  % NO. changes \emph to underlining!
+\renewcommand{\cfttoctitlefont}{\hfill\huge\sf}  % Big "Contents" title
+\renewcommand{\cftaftertoctitle}{\hfill} % and hfill * 2 centres title. 
+\renewcommand{\cftsecfont}{\sf\large}        % section titles in SF, Large.
+\renewcommand{\cftsubsecfont}{\sf}             % subsections are SF
+\renewcommand{\cftsubsecpagefont}{\sf}    % page numbers in sans serif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% the following fails to fix the irritating utf16 messages.
+% \hypersetup{unicode=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "NotoSerifRegular" "DejaVu Serif"
+\font_sans "NotoSansLight" "DejaVu Sans"
+\font_typewriter "beramono" "DejaVu Sans Mono"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 90
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 9
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #1c71d8
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Are We There Yet?
+\end_layout
+
+\begin_layout Subtitle
+Programming Part XIV:
+ Has Dr Jo lost the audience?
+ Or the plot?
+ You decide.
+\end_layout
+
+\begin_layout Author
+
+\family sans
+\size small
+Dr Jo
+\end_layout
+
+\begin_layout Date
+
+\family sans
+\size footnotesize
+2026-11-08
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/are_we_there_yet.webp
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+AI-generated image of car interior with bored children.
+ How many weirdnesses can you spot?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Computer-generated picture of the interior of a vehicle with driver on the left,
+ and two children,
+ more-or-less restrained.
+ Superficially OK,
+ there is a multitude of strange things about the image.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We’ve been exploring the thinking behind 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ my esoteric but fully functional web-based language.
+ From the 
+\begin_inset CommandInset href
+LatexCommand href
+name "start"
+target "https://drjo.substack.com/p/counting-from-zero"
+literal "false"
+
+\end_inset
+
+ I tried to amuse you through a rich mix of allusions,
+ and insights into the evolution of computer languages over the past 75 years.
+ I emphasised what I consider to be The One True Enemy:
+ complexity.
+\end_layout
+
+\begin_layout Standard
+And then,
+ with my last effort on flow of control,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "I failed miserably"
+target "https://drjo.substack.com/p/almost-in-circles"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Too complex?
+\end_layout
+
+\end_inset
+
+ Or so it seems.
+ So let’s pause and take stock.
+\end_layout
+
+\begin_layout Standard
+At the end,
+ I’ll ask you to vote.
+ If you’ve pretty much had it already,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "skip to the end and vote now"
+target "https://drjo.substack.com/i/224802189/you-get-to-vote"
+literal "false"
+
+\end_inset
+
+.
+ Otherwise,
+ a brief summary may be in order.
+ And one or two other little items.
+\end_layout
+
+\begin_layout Section*
+Esolang!
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+Just the place for a Snark!
+ I have said it twice:
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+That alone should encourage the crew.
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+Just the place for a Snark!
+ I have said it thrice:
+\end_layout
+
+\begin_layout Quotation
+
+\emph on
+What I tell you three times is true.
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+—
+
+\series bold
+Lewis Carrol
+\series default
+,
+ The Hunting of the Snark.
+\end_layout
+
+\begin_layout Standard
+In the programming language 
+\begin_inset CommandInset href
+LatexCommand href
+name "INTERCAL"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+INTERCAL is an abbreviation of Compiler Language With No Pronounceable Acronym.
+\end_layout
+
+\end_inset
+
+ invented in 1972,
+ Don Woods and Jim Lyon deliberately constructed a language that in no way resembled existing languages at the time.
+ Instructions start with DO,
+ PLEASE or PLEASE DO.
+ It has some unusual requirements.
+ In the 
+\begin_inset CommandInset href
+LatexCommand href
+name "original manual"
+target "https://web.archive.org/web/20110716084816/http://oops.se/~urban/pit/intercal.ps"
+literal "false"
+
+\end_inset
+
+ (PostScript) the most spectacular errors are however not well explained.
+ These are E079 and E099:
+\end_layout
+
+\begin_layout Itemize
+Too Rude (E079 PROGRAMMER IS INSUFFICIENTLY POLITE).
+ If under about 1/5 of the statements include the keyword PLEASE,
+ the compiler rejects the code for lacking manners.
+\end_layout
+
+\begin_layout Itemize
+Too Grovelling (E099 PROGRAMMER IS OVERLY POLITE).
+ If over about 1/3 of the statements include PLEASE,
+ the compiler halts and rejects the code for being insincere or grovelling too much.
+\end_layout
+
+\begin_layout Standard
+Masochists can even 
+\begin_inset CommandInset href
+LatexCommand href
+name "try this online"
+target "https://www.jdoodle.com/compile-intercal-online"
+literal "false"
+
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/intercal_impolite.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Output of INTERCAL program with too few PLEASE statements.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are esoteric languages and then,
+ there are esoteric languages.
+ Some like 
+\begin_inset CommandInset href
+LatexCommand href
+name "Malbolge"
+target "https://esolangs.org/wiki/Malbolge"
+literal "false"
+
+\end_inset
+
+ were designed to hurt;
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "WORST"
+target "https://esolangs.org/wiki/WORST"
+literal "false"
+
+\end_inset
+
+ is intentionally even more unreliable than 
+\begin_inset CommandInset href
+LatexCommand href
+name "Microsoft and the FAA"
+target "https://kotaku.com/microsoft-on-faa-ground-stop-it-wasnt-me-2000756749"
+literal "false"
+
+\end_inset
+
+;
+ others were made just to prove a point.
+ For example,
+ the famous and fabulous 
+\begin_inset CommandInset href
+LatexCommand href
+name "brainfuck"
+target "https://en.wikipedia.org/wiki/Brainfuck"
+literal "false"
+
+\end_inset
+
+ was designed by Urban Müller in 1993 as a complete language for which he could write the smallest possible 
+\begin_inset CommandInset href
+LatexCommand href
+name "compiler"
+target "https://drjo.substack.com/i/222233193/compilers-then"
+literal "false"
+
+\end_inset
+
+ for the Amiga 2.0 operating system.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Müller got the compiler size down to 240 bytes!
+ This was later cut to a 57-byte interpreter in x-86 assembler.
+ You can listen to him describing the proliferation of his frankenchild in this video.
+ There is a Minecraft implementation and a 256-core brainf*ck CPU.
+ People are weird.
+ There’s even a 
+\begin_inset CommandInset href
+LatexCommand href
+name "JavaScript variant"
+target "https://jscrew.it/"
+literal "false"
+
+\end_inset
+
+.
+ The following will produce "Hi" at any JavaScript console:
+\end_layout
+
+\begin_layout Plain Layout
+
+\family typewriter
+(!![]+[][(!![]+[])[!![]+!![]+!![]]+([][[]]+[])[+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([![]]+[][[]])[+!![]+[+[]]]+(!![]+[])[!![]+!![]+!![]]+(![]+[])[!![]+!![]+!![]]]()[(![]+[])[+[]]+([![]]+[][[]])[+!![]+[+[]]]+(![]+[])[!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[!![]+!![]+!![]]+(!![]+[])[+!![]]]([][(![]+[])[+!![]]+(!![]+[])[+[]]]))[!![]+!![]+[+!![]]]+([![]]+[][[]])[+!![]+[+[]]]
+\end_layout
+
+\end_inset
+
+ It has just 8 commands,
+ namely < > + - .
+ ,
+ [ and ].
+ The brainf*ck variant Ook!
+ is identical,
+ apart from only using the ‘orangutan’ words Ook.
+ Ook?
+ and Ook!
+ It’s a joke,
+ right?
+ Many esolangs are esoteric joke languages or satirical like INTERCAL.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ is a bit different—
+although I’m sure you can see some similarities.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Yeah,
+ some of the error messages like “Out of cheese error” are quirky and stolen from Terry Pratchett;
+ the representation of a 32-bit Small number like :32000 is a nod to the “two spot” of INTERCAL.
+ Nobody forbade having a sense of humour.
+ Yet.
+\end_layout
+
+\end_inset
+
+ She can actually be used to do useful stuff—
+in a way that is terse,
+ legible and effective.
+ In fact,
+ arguably shorter and better than many mainstream languages.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Once upon a year,
+ I wrote a substantial web-based medical application in it,
+ that allowed our Acute Pain Service to go completely paperless in 2006.
+ It ran for over a decade.
+\end_layout
+
+\end_inset
+
+ Later we’ll discover how to interface easily to a complex SQL database,
+ how to do graphics,
+ and even how to build a simple synthesiser keyboard.
+ But first \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simple_stack_operations.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+The stack in Forth,
+ again.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A crude diagram on lined paper.
+ Reading left-to-right,
+ we put the number one on a stack,
+ followed by 2 on top of it.
+ The (+) function then takes two values off the stack,
+ and puts down a 3 instead.
+ After 4 is pushed to that stack on top of the 3,
+ (*) takes both to produce the final result on the stack,
+ 12.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+A quick-ish recap
+\end_layout
+
+\begin_layout Standard
+We’ve already done a lot.
+ A remarkable amount.
+ So far we’ve discovered that everyone believes their particular baroque,
+ archaic and inconsistent number system is not just pretty,
+ but pretty damn near perfect.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Whether you have"
+target "https://drjo.substack.com/p/counting-from-zero"
+literal "false"
+
+\end_inset
+
+ a body part tally system,
+ a decimal system,
+ or the numerical word web of the Nasioi that counts houses or tens of opossums with one convention,
+ and dance troupes (or bundles of bamboo) with another.
+ Let’s not even talk about 
+\begin_inset CommandInset href
+LatexCommand href
+name "the English"
+target "https://drjo.substack.com/p/sing-a-song-of-sixpence"
+literal "false"
+
+\end_inset
+
+,
+ who stole eleven (ęndleofan) from I know not where,
+ and seem to have slotted in an Arabic/Indian counting system more-or-less back-to-front.
+\end_layout
+
+\begin_layout Standard
+This problem is even worse in Computer Science,
+ where we are all absolutely certain that alone among the hundreds of languages our one is The Way,
+ whether we 
+\begin_inset CommandInset href
+LatexCommand href
+name "count up from (or down to) one or zero"
+target "https://drjo.substack.com/i/210541344/counter-intuitive"
+literal "false"
+
+\end_inset
+
+,
+ and regardless of pretty much everything else we do.
+ To our consternation,
+ we discovered that in 
+\begin_inset CommandInset href
+LatexCommand href
+name "floating point arithmetic"
+target "https://drjo.substack.com/i/212226868/but"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+0.1 + 0.2 = 0.30000000000000004
+\end_layout
+
+\begin_layout Standard
+But more than this,
+ we bumped into the perils of cut-and-paste,
+ and 
+\begin_inset CommandInset href
+LatexCommand href
+name "the meaning of foo"
+target "https://drjo.substack.com/p/the-summoning-of-spirits"
+literal "false"
+
+\end_inset
+
+—
+it’s a verb :) We found value in being able to identify 
+\begin_inset CommandInset href
+LatexCommand href
+name "at a glance"
+target "https://drjo.substack.com/i/212130688/lets-start-building"
+literal "false"
+
+\end_inset
+
+ what something does.
+ In 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ form follows function:
+ from a mile away,
+ we can spot a verb,
+ a Noun,
+ an ugly shouty COMMAND,
+ an _adverb_ and even a nasty little camelCase parochialValue,
+ which some might know as “a local variable”.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Then"
+target "https://drjo.substack.com/i/223706357/complexity-is-easy"
+literal "false"
+
+\end_inset
+
+ we even discovered parochial-like atoms:
+ rE and xE,
+ which are convenient “trumps”—
+fake parochials.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Polish notation"
+target "https://drjo.substack.com/p/lets-polish-our-polish"
+literal "false"
+
+\end_inset
+
+ next sucked us in,
+ as with it we can utterly discard the seventeen layers of operator precedence in languages like C++.
+ We found that 
+\begin_inset CommandInset href
+LatexCommand href
+name "FORTH allows us to discard in turn"
+target "https://drjo.substack.com/i/213376055/going-forth-using-reverse-polish"
+literal "false"
+
+\end_inset
+
+ all of the irritating parentheses of Lisp—
+it uses Reverse Polish Notation.
+ We found the 
+\begin_inset CommandInset href
+LatexCommand href
+name "joy of recursion"
+target "https://drjo.substack.com/i/213376055/a-very-cool-thing"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+And then we met 
+\begin_inset CommandInset href
+LatexCommand href
+name "POWER notation"
+target "https://drjo.substack.com/i/213376055/power"
+literal "false"
+
+\end_inset
+
+,
+ which reverses FORTH and writes Polish,
+ but evaluates from right-to-left.
+ It reads well,
+ and works without parentheses or precedence rules.
+ We saw how powerful (pun intended) it is to use a stack.
+\end_layout
+
+\begin_layout Standard
+We also stole—
+from the J language—
+the idea of manipulating a whole list in one action.
+ Continuing this same happy thread,
+ we 
+\begin_inset CommandInset href
+LatexCommand href
+name "bumped into The Enemy once more"
+target "https://drjo.substack.com/i/214247059/claude-codea-case-study"
+literal "false"
+
+\end_inset
+
+.
+ Complexity.
+ Here personified in Claude Code,
+ which rewrites itself as a difficult-to-maintain code monster.
+ Worse yet,
+ AI also 
+\begin_inset CommandInset href
+LatexCommand href
+name "imperils the whole idea"
+target "https://drjo.substack.com/p/will-ai-kill-copyleft"
+literal "false"
+
+\end_inset
+
+ of ‘Copyleft’.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "A crazy solution"
+target "https://drjo.substack.com/i/214247059/joy-jumps"
+literal "false"
+
+\end_inset
+
+ is at hand.
+ We can reserve our own little space,
+ protected by our own 
+\begin_inset CommandInset href
+LatexCommand href
+name "quixotic little licence"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+,
+ and write code in our own little language,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia"
+target "https://drjo.substack.com/p/the-naming"
+literal "false"
+
+\end_inset
+
+.
+ We also met Donald Knuth’s literate programming,
+ and went one better with 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dogwagger"
+target "https://drjo.substack.com/p/are-you-literate"
+literal "false"
+
+\end_inset
+
+,
+ which embeds code in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX~
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Okay,
+ that was rather a lot,
+ wasn’t it?
+\end_layout
+
+\begin_layout Standard
+There was even a bit more.
+ We discovered Joe Armstrong’s 
+\begin_inset CommandInset href
+LatexCommand href
+name "lament about a banana"
+target "https://drjo.substack.com/p/all-i-wanted-was-a-banana"
+literal "false"
+
+\end_inset
+
+ and his antidote Erlang,
+ which not only worked,
+ but allowed his team to create a million-line telephony suite that ran with ‘99.9999999% reliability’.
+ From him we learnt that 
+\begin_inset CommandInset href
+LatexCommand href
+name "the most lamentable decision in the whole of programming"
+target "https://drjo.substack.com/i/219692586/1-the-worst-decision"
+literal "false"
+
+\end_inset
+
+ was to allow this sort of rubbish:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+N = N + 1;
+\end_layout
+
+\begin_layout Standard
+\SpecialChar ldots
+ and this in turn gave us the Write Once Read Many principle (WORM).
+ As a side effect,
+ Global values lost all of their terror (almost),
+ and we saw how immutably writing the value of a variable encourages us to 
+\begin_inset CommandInset href
+LatexCommand href
+name "write simpler code"
+target "https://drjo.substack.com/i/219692586/3-local-variables"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Some 
+\begin_inset CommandInset href
+LatexCommand href
+name "expensive explosions"
+target "https://drjo.substack.com/p/the-wrath-of-kahan"
+literal "false"
+
+\end_inset
+
+ showed the merit of strong typing.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Fibonacci numbers"
+target "https://drjo.substack.com/i/220506032/aww-lets-play-with-phyllotaxis"
+literal "false"
+
+\end_inset
+
+ convinced us that the wrong algorithm will bring the most powerful supercomputer to its knees.
+ We also saw how fixed-point inaccuracies allowed hackers to steak $128 million from Balancer in just 30 minutes,
+ and how some algorithms are just intrinsically nasty,
+ disabling even extremely precise calculations.
+\end_layout
+
+\begin_layout Standard
+After touching on 
+\begin_inset CommandInset href
+LatexCommand href
+name "modules"
+target "https://drjo.substack.com/i/221890680/modules"
+literal "false"
+
+\end_inset
+
+,
+ we glanced at 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zipf’s law"
+target "https://drjo.substack.com/i/220506032/aww-lets-play-with-phyllotaxis"
+literal "false"
+
+\end_inset
+
+ and stole its main theme as the principle:
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Keep your names long.
+\end_layout
+
+\begin_layout Standard
+We then 
+\begin_inset CommandInset href
+LatexCommand href
+name "built the core"
+target "https://drjo.substack.com/p/a-language-in-7-lines"
+literal "false"
+
+\end_inset
+
+ of 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+ in just 7 lines,
+ which led to simple 
+\begin_inset CommandInset href
+LatexCommand href
+name "flow of control"
+target "https://drjo.substack.com/p/almost-in-circles"
+literal "false"
+
+\end_inset
+
+,
+ —
+and then most of my readers rather lost it.
+ My apologies!
+\end_layout
+
+\begin_layout Standard
+But the ideas are simple.
+ There are alternatives to hoppin’ in the middle like a herring on the griddle.
+ And if you simply must jump around,
+ do so in an orderly manner using simple constructs like { | } CASE and { } REPEAT.
+ Enough said.
+\end_layout
+
+\begin_layout Section*
+And that’s pretty much that,
+ right?
+\end_layout
+
+\begin_layout Standard
+Well,
+ not entirely.
+ But most of the rest is finer detail.
+ I recently promised to discuss how to build modules.
+ The basic idea is:
+\end_layout
+
+\begin_layout Enumerate
+Create an appropriate 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX~
+\end_layout
+
+\end_inset
+
+ document (best in LyX),
+ using literate programming (Dogwagger’s use of 
+\backslash
+begin{verbatim} \SpecialChar ldots
+ 
+\backslash
+end{verbatim} )
+\end_layout
+
+\begin_layout Enumerate
+Embed code.
+ Chunks of code are called ‘scripts’.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+They are written as text documents with a .whole suffix.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Roll this into a module that can be loaded into 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+.
+ Load it like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger dependsOn=`RunModule' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+MODULE <my_module>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Individual scripts can be run as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger myName=`RunModule' 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim} 
+\end_layout
+
+\begin_layout Plain Layout
+
+RUN <follower_verb> <my_module> <script_name>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That <follower_verb> is deferred until the script has run through.
+ Yep,
+ it’s a 
+\begin_inset CommandInset href
+LatexCommand href
+name "callback"
+target "https://drjo.substack.com/i/223706357/angel-wings-pend"
+literal "false"
+
+\end_inset
+
+.
+ We make use of the asynchrony and delays now built into JavaScript,
+ where we need them.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Three more things
+\end_layout
+
+\begin_layout Standard
+We do however need to explore three more things.
+ So the plan of attack is as follows:
+\end_layout
+
+\begin_layout Enumerate
+In this post,
+ I’m going to discuss just one more important concept—
+how to manage the stack.
+\end_layout
+
+\begin_layout Enumerate
+In the next post,
+ I’ll explain how we store information in tabular form using the GRID command,
+ and how this seamlessly interfaces to a server-side database.
+ A grid is basically the image of (part of) an SQL table.
+\end_layout
+
+\begin_layout Enumerate
+We then must learn how to use widgets:
+ buttons,
+ on-screen-text,
+ and a lot more.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The week after,
+ I’ll put up a complete,
+ working version of 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+—
+free for everyone to use—
+with a bit of a surprise in the background.
+ And a comprehensive,
+ interactive tutor for those who are interested.
+ To work \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/whole_buffalo.webp
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Below
+
+\begin_layout Plain Layout
+
+\size footnotesize
+“Use the whole buffalo” image is from 
+\begin_inset CommandInset href
+LatexCommand href
+name "Austin & Jason"
+target "https://unwrittenbusinessguide.substack.com/p/use-the-whole-buffalo-a-business"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A graphic showing the multiplicity of uses of parts of a buffalo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+With POWER comes responsibility
+\end_layout
+
+\begin_layout Standard
+We write POlish With Evaluation in Reverse.
+ POWER.
+ This allows us to use the stack well.
+ There is a catch.
+ You need to use the whole buffalo.
+\end_layout
+
+\begin_layout Standard
+Conventionally,
+ most computer languages deal with functions.
+ A function takes zero or more arguments,
+ and returns precisely one value.
+ The thing is,
+ sometimes we need to return several values.
+ In a language such as JavaScript,
+ we fudge this by returning an array of values,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+You can easily do something similar in Perl.
+\end_layout
+
+\end_inset
+
+ and then say something like:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+const [dax,
+ wug] = Foo(bar);
+\end_layout
+
+\begin_layout Standard
+In 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ you can surely return an array on the stack,
+ but verbs are not functions.
+ They can put whatever they want on the stack;
+ and they take what they need.
+ This entails both some common sense and some rules.
+\end_layout
+
+\begin_layout Standard
+The rules are pretty simple:
+\end_layout
+
+\begin_layout Enumerate
+A child of a verb (A verb used inside a ‘parent’ verb) can only see what the parent provides.
+ Stuff made within a verb is visible to its children,
+ but stuff just there on the stack at entry into the parent verb isn’t.
+ There is however a MARK verb that allows the parent to “allocate pocket money to the children”.
+\end_layout
+
+\begin_layout Enumerate
+A verb can limit what it sees on the stack.
+ TAKE limits what the verb sees.
+\end_layout
+
+\begin_layout Enumerate
+There is a CLEAN command to scrub a number of items off the stack.
+\end_layout
+
+\begin_layout Enumerate
+You will seldom need to use MARK,
+ TAKE or CLEAN.
+\end_layout
+
+\begin_layout Enumerate
+A verb can return whatever it wants,
+ but if there’s stuff left on the stack when a script terminates,
+ this is an error!
+\end_layout
+
+\begin_layout Standard
+That last rule may seem very surprising to anyone with programming experience.
+ In most computer languages,
+ where function xyzzy() returns a value,
+ you might say maze = xyzzy();
+ but if you simply say xyzzy();
+ then the returned value is simply discarded.
+\end_layout
+
+\begin_layout Standard
+Not so in 
+\series bold
+\emph on
+Zyzyxia
+\series default
+\emph default
+,
+ which is intensely stack aware.
+ We “use the whole buffalo”,
+ only discarding something explicitly.
+ Even this is an error:
+\end_layout
+
+\begin_layout Quote
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\end_layout
+
+\begin_layout Plain Layout
+
+% Dogwagger 
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+footnotesize
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+PEND 1M <my_kaboom>
+\end_layout
+
+\begin_layout Plain Layout
+
+SET <my_kaboom> < NAG [.I waited.] [.Buffalo.] >
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above code creates a verb called <my_kaboom> and PEND then runs it after waiting a second (A million microseconds).
+ But there’s a problem.
+ After you acknowledge the NAG message <I waited>,
+ the text <Buffalo> is still on the stack—
+and then the script effectively ends.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+At the command line,
+ “stuff left over” is not a problem,
+ as this is desired.
+ ADD 1 2 will produce 3 and not an error.
+ A spare <Buffalo> will be gainfully available for use.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This forces a “potlatch” error:
+ you have perpetrated wasteful behaviour.
+ The <Buffalo> cannot simply be left there unconsumed.
+ Omit it,
+ or JUNK it.
+\end_layout
+
+\begin_layout Standard
+The common sense we referred to above is just that.
+ Common sense.
+ Almost always,
+ “functions” that return one value are the way to go.
+ That’s why computer programming relies on functions.
+ So use them.
+ Mostly.
+ Always respect the stack,
+ and when you get an error,
+ don’t just fix it—
+learn why you stuffed up.
+\end_layout
+
+\begin_layout Standard
+And now \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Section*
+You get to vote
+\end_layout
+
+\begin_layout Standard
+I’d really appreciate your input:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+POLL
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Please feed back on my exploration of 
+\series bold
+\emph on
+Zyzyxia
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+OK,
+ I guess
+\end_layout
+
+\begin_layout Enumerate
+A purgatorial exercise I've hated
+\end_layout
+
+\begin_layout Enumerate
+You lost me but parts were fun
+\end_layout
+
+\begin_layout Enumerate
+This has been really interesting
+\end_layout
+
+\begin_layout Enumerate
+I've left a comment below
+\end_layout
+
+\begin_layout Standard
+I will value your feedback,
+ especially where I’ve stuffed up.
+\end_layout
+
+\begin_layout Section*
+Which leaves just one more thing
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+Complexity is The Enemy
+\end_layout
+
+\begin_layout Standard
+What I tell you three times is true.
+\end_layout
+
+\begin_layout Standard
+As promised,
+ 
+\family sans
+➵
+\family default
+ in my next post we’ll briefly explore ‘grids’ in memory,
+ and how they map to relational databases.
+ We’re almost there.
+ Five more minutes \SpecialChar ldots
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+My 2c,
+ Dr Jo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+⌘
+\end_layout
+
+\end_inset
+
+ As most of the links in the above are references to past posts,
+ I’ve ignored my usual convention of flagging them with this ‘of interest’ symbol,
+ to keep the text a bit cleaner.
+\end_layout
+
+\begin_layout Quotation
+Copyright © 2026 JM van Schalkwyk
+\end_layout
+
+\begin_layout Quotation
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+This work is licensed under the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zyzyxia Public Licence, version 1"
+target "https://drjo.substack.com/p/zyzyxia-public-licence"
+literal "false"
+
+\end_inset
+
+.
+ You may convey it only together with its 
+\begin_inset CommandInset href
+LatexCommand href
+name "Corresponding Literate Source Document"
+target "https://github.com/jvanschalkwyk/zyzyxia/blob/main/Programming_part_12.lyx"
+literal "false"
+
+\end_inset
+
+,
+ as that Licence requires.
+ All rights are reserved in respect of AI Training Use,
+ including for the purposes of any text-and-data-mining exception or opt-out provision under applicable law.
+ Submitting this work as input to a Generative AI System is prohibited.
+\end_layout
+
+\end_body
+\end_document
